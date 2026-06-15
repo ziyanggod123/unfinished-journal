@@ -21,6 +21,15 @@ jobs:
           current_branch="$(git branch --show-current)"
           test "$current_branch" = "loop/staging"
 
+      - name: Validate loop runner inputs
+        run: |
+          bash -n scripts/loop-runner.sh
+          test -f AGENT_TASK.md
+          test -f BRAND_SPEC.md
+          test -f LOOP_POLICY.md
+          test -f VISUAL_CHECKLIST.md
+          test -f LOOP_REPORT.md
+
       - name: Install Codex CLI
         run: npm install -g @openai/codex
 

@@ -31,3 +31,14 @@ Copy this block for each loop run.
 - Result: Success. Runner scripts now fail fast when `AGENT_TASK.md`, `BRAND_SPEC.md`, `LOOP_POLICY.md`, `VISUAL_CHECKLIST.md`, or `LOOP_REPORT.md` is missing.
 - Blockers: No POSIX shell binary available locally for `loop-runner.sh` syntax execution.
 - Follow-up: Re-run shell syntax validation in CI or on a machine with `bash` available.
+
+### Run Record
+
+- Date: 2026-06-15 15:22:59 +08:00
+- Branch: `loop/staging`
+- Task: Added a workflow preflight step to validate the loop runner shell script and required governance files before Codex installation.
+- Files changed: `.github/workflows/loop.yml`, `LOOP_REPORT.md`
+- Validation: Reviewed the workflow diff and confirmed the new preflight step is present. Local `bash` execution could not run in this environment because `bash` is not installed on this Windows host.
+- Result: Success. The GitHub Actions loop now fails earlier when the runner script is malformed or required loop files are missing.
+- Blockers: Local shell syntax execution for `scripts/loop-runner.sh` remains unavailable without `bash`.
+- Follow-up: Let GitHub Actions or another machine with `bash` exercise the new preflight step end-to-end.
