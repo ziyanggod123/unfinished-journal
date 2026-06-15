@@ -1,0 +1,1250 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>未竟 The Unfinished · 失败不是终点。无人继承，才是。</title>
+    <meta
+      name="description"
+      content="未竟 The Unfinished 是一个记录未完成探索、失败数据与文明传承的平台。给失败以尊严，给后来者以地图。"
+    />
+    <meta
+      name="keywords"
+      content="未竟,The Unfinished,失败实验,未完成项目,文明传承,数据资产,科研档案,创业停滞,里程碑,路碑"
+    />
+    <meta property="og:title" content="未竟 The Unfinished" />
+    <meta property="og:description" content="失败不是终点。无人继承，才是。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="logo2.png" />
+    <link rel="icon" href="logo2.png" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://unfinishedjournal.com" />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <div class="sky-shell">
+      <div class="sky-glow sky-glow-a"></div>
+      <div class="sky-glow sky-glow-b"></div>
+      <div class="sky-grid"></div>
+    </div>
+
+    <div class="loading-overlay active" id="loadingOverlay">
+      <div class="loading-mark">
+        <span class="loading-mark-en">THE UNFINISHED</span>
+        <strong>未竟</strong>
+      </div>
+    </div>
+
+    <div class="modal-shell" id="modalShell" aria-hidden="true">
+      <div class="modal-backdrop" onclick="closeModal()"></div>
+      <div
+        class="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <button class="modal-close" onclick="closeModal()" aria-label="关闭">
+          ×
+        </button>
+        <h3 id="modalTitle"></h3>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-inner">
+        <a
+          href="#"
+          class="nav-logo"
+          onclick="
+            navigateTo('home');
+            return false;
+          "
+          aria-label="The Unfinished Journal 未竟"
+        >
+          <span class="nav-logo-mark">
+            <img src="logo2-clean.png" alt="The Unfinished Journal 未竟" />
+          </span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          onclick="toggleNav()"
+          aria-label="打开菜单"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a
+              href="#"
+              onclick="
+                navigateTo('home');
+                return false;
+              "
+              >首页</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="
+                navigateTo('star-road');
+                return false;
+              "
+              >星空古路</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="
+                navigateTo('archive');
+                return false;
+              "
+              >未竟档案馆</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="
+                navigateTo('submit');
+                return false;
+              "
+              class="nav-cta-item"
+              >留下我的路碑</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="
+                navigateTo('about');
+                return false;
+              "
+              >关于未竟</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="
+                navigateTo('admin');
+                return false;
+              "
+              >原型后台</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="page active" id="page-home">
+        <section class="hero">
+          <div class="hero-stars" aria-hidden="true">
+            <span class="hero-star hero-star-a"></span>
+            <span class="hero-star hero-star-b"></span>
+            <span class="hero-star hero-star-c"></span>
+            <span class="hero-star hero-star-d"></span>
+          </div>
+          <div class="hero-layout">
+            <div class="hero-content">
+              <div class="hero-edition-line">
+                <span>THE UNFINISHED JOURNAL</span>
+                <span>V3.1 MVP / PREVIEW FREEZE</span>
+              </div>
+              <div class="hero-title-row">
+                <h1 class="hero-title">未竟</h1>
+                <div class="hero-title-note">
+                  <span>Archive of</span>
+                  <strong>Unfinished Routes</strong>
+                </div>
+              </div>
+              <p class="hero-creed">失败不是终点。<br />无人继承，才是。</p>
+              <p class="hero-explainer">
+                《未竟》记录尚未完成、未能发表、无人接续却仍有价值的探索；把失败实验、负结果、停滞路径与可继承资产整理成可检索的文明档案。
+              </p>
+              <div class="hero-actions">
+                <button class="btn btn-primary" onclick="navigateTo('submit')">
+                  留下我的路碑
+                </button>
+                <button
+                  class="btn btn-secondary"
+                  onclick="navigateTo('about')"
+                >
+                  了解未竟
+                </button>
+                <button
+                  class="text-link hero-star-link"
+                  onclick="navigateTo('star-road')"
+                >
+                  查看星空古路
+                </button>
+              </div>
+              <div class="hero-ledger" aria-label="未竟收录范围">
+                <div>
+                  <span>01</span>
+                  <strong>失败实验</strong>
+                  <small>Failed experiments</small>
+                </div>
+                <div>
+                  <span>02</span>
+                  <strong>负结果</strong>
+                  <small>Negative results</small>
+                </div>
+                <div>
+                  <span>03</span>
+                  <strong>停滞路径</strong>
+                  <small>Paused routes</small>
+                </div>
+                <div>
+                  <span>04</span>
+                  <strong>可继承资产</strong>
+                  <small>Inheritable assets</small>
+                </div>
+              </div>
+            </div>
+            <aside class="hero-cover-card" aria-label="未竟期刊封面信息">
+              <div class="cover-topline">
+                <span>UNFINISHED JOURNAL</span>
+                <span>ISSN · PROTOTYPE</span>
+              </div>
+              <div class="cover-mark">
+                <span class="cover-mark-en">The Unfinished Journal</span>
+                <strong>未竟</strong>
+              </div>
+              <img
+                src="logo2-clean.png"
+                alt="The Unfinished Journal 未竟"
+                class="cover-logo"
+              />
+              <div class="cover-stamp">Editorial Dossier</div>
+              <div class="cover-title-block">
+                <span>Issue</span>
+                <strong>Preview<br />Freeze</strong>
+              </div>
+              <p>
+                A catalogue for unfinished explorations, failed evidence and
+                knowledge that can still be inherited.
+              </p>
+              <dl class="cover-meta">
+                <div>
+                  <dt>Accession</dt>
+                  <dd>UJ / V3.1 / Local Archive</dd>
+                </div>
+                <div>
+                  <dt>Primary records</dt>
+                  <dd>Milestones · Methods · Negative Results</dd>
+                </div>
+                <div>
+                  <dt>Public layer</dt>
+                  <dd>Journal · Archive · Star Road</dd>
+                </div>
+              </dl>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section fit-section">
+          <div class="section-heading">
+            <span class="eyebrow">Submission Index</span>
+            <h2>适合提交什么</h2>
+            <p>
+              未竟不是普通期刊，也不是失败论文收容站。它保存那些尚未抵达终点、却已经留下真实路径的探索。
+            </p>
+          </div>
+          <div class="fit-grid">
+            <article class="fit-card">
+              <h3>未完成项目</h3>
+              <p>
+                阶段性成果已出现，但因时间、资源或团队变化而暂时中止的研究、工程或创业项目。
+              </p>
+            </article>
+            <article class="fit-card">
+              <h3>失败实验</h3>
+              <p>负结果、异常结果，或清楚说明“这条路为何走不通”的实验记录。</p>
+            </article>
+            <article class="fit-card">
+              <h3>方法失败</h3>
+              <p>
+                变量、材料、流程或判断标准存在缺口，导致路线系统性失效的尝试。
+              </p>
+            </article>
+            <article class="fit-card">
+              <h3>停滞路径</h3>
+              <p>
+                曾被认真推进，但因现实条件停下，仍保留判断、教训与可继承资产的路线。
+              </p>
+            </article>
+            <article class="fit-card">
+              <h3>开放问题</h3>
+              <p>仍未解开的关键问题、卡点与值得后来者继续推进的分岔路口。</p>
+            </article>
+            <article class="fit-card">
+              <h3>可继承成果</h3>
+              <p>
+                数据、脚本、草图、笔记、失败原因与判断链条等可被继续接手的材料。
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section split-section">
+          <div class="section-column">
+            <div class="section-heading">
+              <span class="eyebrow">Recent Milestones</span>
+              <h2>最新路碑</h2>
+              <p>
+                最新留下的未完成探索、失败数据与路线判断，构成后来者的地图边界。
+              </p>
+            </div>
+            <div class="card-stack" id="latestMilestonesList"></div>
+          </div>
+          <div class="section-column">
+            <div class="section-heading">
+              <span class="eyebrow">Awaiting Inheritance</span>
+              <h2>等待传承项目</h2>
+              <p>这些路碑没有结束，只是在等待下一位继续走下去的人。</p>
+            </div>
+            <div class="card-stack" id="awaitingInheritanceList"></div>
+          </div>
+        </section>
+
+        <section class="section preview-section">
+          <div class="section-heading">
+            <span class="eyebrow">Star Road Preview</span>
+            <h2>失败终将连成星座。</h2>
+            <p>
+              未竟保存的不是单次结果，而是那些曾经照亮过某条道路的判断、尝试、偏航与停驻。
+            </p>
+          </div>
+          <div class="star-preview" id="homeStarPreview"></div>
+          <div class="section-foot">
+            <button class="text-link" onclick="navigateTo('star-road')">
+              查看完整星空古路
+            </button>
+          </div>
+        </section>
+
+        <section class="section systems-section">
+          <div class="section-heading">
+            <span class="eyebrow">Editorial Structure</span>
+            <h2>体系模块</h2>
+            <p>
+              当你先理解未竟是什么、能提交什么之后，再进入它的后续结构：传承、遗产、AI
+              辅助与贡献计量。
+            </p>
+          </div>
+          <div class="systems-grid">
+            <article class="concept-card">
+              <span class="eyebrow">Inheritance</span>
+              <h3>传承者社区</h3>
+              <p>等待后来者申请继承未完成项目，让停滞的路继续向前。</p>
+              <button class="text-link" onclick="navigateTo('inheritance')">
+                查看传承者社区
+              </button>
+            </article>
+            <article class="concept-card">
+              <span class="eyebrow">Legacy</span>
+              <h3>遗产库</h3>
+              <p>保存无法直接继承、但仍值得后来者与 AI 重新发现的思想碎片。</p>
+              <button class="text-link" onclick="navigateTo('legacy')">
+                进入遗产库
+              </button>
+            </article>
+            <article class="concept-card">
+              <span class="eyebrow">Keeper AI</span>
+              <h3>守灯者 AI</h3>
+              <p>
+                未来用于检索未竟项目、梳理失败原因、补全路径图与辅助审稿的知识助手。
+              </p>
+              <button class="text-link" onclick="navigateTo('keeper-ai')">
+                查看守灯者 AI
+              </button>
+            </article>
+            <article class="concept-card">
+              <span class="eyebrow">COG</span>
+              <h3>思元 COG</h3>
+              <p>
+                未来的数据贡献计量单位，当前阶段只作为贡献权重展示，不做交易或收益承诺。
+              </p>
+              <button class="text-link" onclick="navigateTo('cog')">
+                查看思元体系
+              </button>
+            </article>
+            <article class="concept-card">
+              <span class="eyebrow">Journal</span>
+              <h3>Journal</h3>
+              <p>
+                把路碑、失败地图与传承链条整理成可引用、可检索、可理解的文明档案层。
+              </p>
+              <button class="text-link" onclick="navigateTo('journal')">
+                查看 Journal
+              </button>
+            </article>
+            <article class="concept-card quote-card">
+              <span class="eyebrow">Mission</span>
+              <h3>给失败以尊严，给后来者以地图。</h3>
+              <p>
+                《未竟》保存失败实验、停滞创业、工程路径、研究直觉与思想遗产，让它们成为
+                AI 可检索、后来者可继承的数据资产。
+              </p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="page" id="page-star-road">
+        <section class="page-hero">
+          <span class="eyebrow">Star Road</span>
+          <h1>星空古路</h1>
+          <p class="page-hero-en">Every unfinished journey leaves a mark.</p>
+          <p>你看到的每一颗星，<br />都曾是某个人没有走完的路。</p>
+        </section>
+        <section class="section">
+          <div class="star-road-layout">
+            <div class="star-map-panel">
+              <div class="star-map" id="starMap">
+                <div class="star-map-meta">
+                  <span>Graph View</span>
+                  <span>Milestones · Data · Inheritance</span>
+                </div>
+                <div class="star-map-controls">
+                  <span>Drag to roam · Wheel to zoom · Click a node to open</span>
+                  <button type="button" class="graph-reset-button" onclick="resetStarRoadView()">
+                    Reset View
+                  </button>
+                </div>
+                <div class="star-viewport" id="starViewport">
+                  <svg class="star-links" id="starLinks" aria-hidden="true"></svg>
+                  <div class="star-node-layer" id="starNodeLayer"></div>
+                </div>
+              </div>
+            </div>
+            <aside class="star-legend">
+              <div class="graph-note">
+                <span class="eyebrow">Knowledge Map</span>
+                <p>亮色节点为路碑，细线按失败、数据、传承与路线关系生成。</p>
+              </div>
+              <h3>路碑状态</h3>
+              <ul id="statusLegend"></ul>
+              <p>
+                点击任意星点，可查看该路碑的失败原因、可继承资产与后续路线建议。
+              </p>
+            </aside>
+          </div>
+        </section>
+      </section>
+
+      <section class="page" id="page-archive">
+        <section class="page-hero compact-hero">
+          <span class="eyebrow">Archive</span>
+          <h1>未竟档案馆</h1>
+          <p>
+            这里保存未完成探索、失败实验、停滞项目与可被 AI 检索的知识资产。
+          </p>
+        </section>
+        <section class="section">
+          <div class="archive-console">
+            <div class="archive-console-head">
+              <span class="eyebrow">Catalogue Search</span>
+              <h2>路碑检索目录</h2>
+              <p>按题名、开路人、状态与领域检索当前可展示的未竟档案。</p>
+            </div>
+            <div class="toolbar">
+              <input
+                class="field-input"
+                id="archiveSearch"
+                type="search"
+                placeholder="搜索标题、开路人、领域或状态"
+                oninput="renderArchive()"
+              />
+              <select
+                class="field-input"
+                id="archiveStatusFilter"
+                onchange="renderArchive()"
+              >
+                <option value="">全部状态</option>
+              </select>
+              <select
+                class="field-input"
+                id="archiveFieldFilter"
+                onchange="renderArchive()"
+              >
+                <option value="">全部领域</option>
+              </select>
+            </div>
+          </div>
+          <div class="archive-grid" id="archiveGrid"></div>
+          <div class="empty-state" id="archiveEmpty" style="display: none">
+            <h3>暂无符合条件的路碑</h3>
+            <p>你可以尝试更换筛选条件，或者先留下第一块新的路碑。</p>
+          </div>
+        </section>
+      </section>
+
+      <section class="page" id="page-inheritance">
+        <section class="page-hero compact-hero">
+          <span class="eyebrow">Inheritance</span>
+          <h1>传承者社区</h1>
+          <p>用户可以申请继承未完成项目，让停滞的道路继续向前。</p>
+        </section>
+        <section class="section split-section">
+          <div class="section-column">
+            <div class="section-heading">
+              <span class="eyebrow">Roles</span>
+              <h2>身份体系</h2>
+            </div>
+            <div class="role-grid">
+              <div class="role-card">开路人</div>
+              <div class="role-card">守路人</div>
+              <div class="role-card">传承者</div>
+              <div class="role-card">证道人</div>
+              <div class="role-card">审稿人</div>
+              <div class="role-card">复现者</div>
+              <div class="role-card">星火贡献者</div>
+            </div>
+            <div class="lineage-card">
+              <h3>传承谱系</h3>
+              <p>开路人 → 第一代传承者 → 第二代传承者 → 证道人</p>
+              <p>
+                未竟记录的不只是结果，也记录每一次接力与每一次让路继续存在的人。
+              </p>
+            </div>
+          </div>
+          <div class="section-column">
+            <div class="section-heading">
+              <span class="eyebrow">Apply</span>
+              <h2>等待继承的项目</h2>
+            </div>
+            <div class="inheritance-list" id="inheritanceList"></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="page" id="page-legacy">
+        <section class="page-hero compact-hero">
+          <span class="eyebrow">Legacy Vault</span>
+          <h1>遗产库</h1>
+          <p>
+            遗产库保存的不只是项目，而是那些可能暂时没人直接继承、但仍有价值的思想碎片。
+          </p>
+        </section>
+        <section class="section">
+          <div class="legacy-intro">
+            <p>
+              很多项目不一定有人直接继承，但其中的判断和经验仍然有价值。遗产库保存这些被遗忘的思维碎片，等待后来者和
+              AI 重新发现。
+            </p>
+          </div>
+          <div class="legacy-grid">
+            <article class="legacy-card">
+              <h3>研究直觉</h3>
+              <p>那些尚未形成论文，但足以改变问题边界的第一性判断。</p>
+            </article>
+            <article class="legacy-card">
+              <h3>商业判断</h3>
+              <p>停滞创业项目里的认知代价、市场误差与策略偏航。</p>
+            </article>
+            <article class="legacy-card">
+              <h3>失败反思</h3>
+              <p>不是简单的复盘，而是可供后来者避免重复踩坑的真实路障。</p>
+            </article>
+            <article class="legacy-card">
+              <h3>路线推演</h3>
+              <p>那些没有来得及验证的后续路线、替代实验和可能分支。</p>
+            </article>
+            <article class="legacy-card">
+              <h3>人生经验</h3>
+              <p>项目背后的人生代价、协作教训与精神遗嘱。</p>
+            </article>
+            <article class="legacy-card">
+              <h3>未写完的理论</h3>
+              <p>未发表的想法、重要笔记与尚未完形的体系草图。</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="page" id="page-keeper-ai">
+        <section class="page-hero compact-hero">
+          <span class="eyebrow">Keeper AI</span>
+          <h1>守灯者 AI</h1>
+          <p>守灯者 AI 是未来《未竟》知识库的检索助手与逻辑审稿助手。</p>
+        </section>
+        <section class="section split-section">
+          <div class="section-column">
+            <div class="section-heading">
+              <span class="eyebrow">Functions</span>
+              <h2>功能占位</h2>
+            </div>
+            <div class="bullet-cards">
+              <div class="bullet-card">检索未竟项目</div>
+              <div class="bullet-card">总结失败原因</div>
+              <div class="bullet-card">对比不同路线</div>
+              <div class="bullet-card">推荐可继承项目</div>
+              <div class="bullet-card">发现相似失败路径</div>
+              <div class="bullet-card">生成研究路线图</div>
+              <div class="bullet-card">提醒用户避免重复造轮子</div>
+              <div class="bullet-card">为投稿者检查逻辑漏洞</div>
+              <div class="bullet-card">为审稿人生成初审报告</div>
+            </div>
+          </div>
+          <div class="section-column">
+            <div class="section-heading">
+              <span class="eyebrow">Agents</span>
+              <h2>自动审稿 Agent</h2>
+            </div>
+            <div class="agent-list">
+              <div class="agent-card">
+                <strong>逻辑 Agent</strong>
+                <p>检查论证链条与论点断裂。</p>
+              </div>
+              <div class="agent-card">
+                <strong>数据 Agent</strong>
+                <p>检查数据真实性、完整度与证据缺口。</p>
+              </div>
+              <div class="agent-card">
+                <strong>方法 Agent</strong>
+                <p>检查方法设计、变量控制与可复现性。</p>
+              </div>
+              <div class="agent-card">
+                <strong>失败原因 Agent</strong>
+                <p>提炼失败或停滞的核心因子。</p>
+              </div>
+              <div class="agent-card">
+                <strong>贡献 Agent</strong>
+                <p>判断路碑对后来者的可继承价值。</p>
+              </div>
+              <div class="agent-card">
+                <strong>风险 Agent</strong>
+                <p>提示伦理、合规与误用风险。</p>
+              </div>
+            </div>
+            <blockquote class="principle-block">
+              未竟不问“你成功了吗？”<br />
+              而问“你的失败是否真实、逻辑是否完整、数据是否可信、后来者是否能受益？”
+            </blockquote>
+          </div>
+        </section>
+      </section>
+
+      <section class="page" id="page-cog">
+        <section class="page-hero compact-hero">
+          <span class="eyebrow">COG</span>
+          <h1>思元 COG</h1>
+          <p>思元 COG 是《未竟》未来的数据贡献计量单位。</p>
+        </section>
+        <section class="section split-section">
+          <div class="section-column">
+            <div class="section-heading">
+              <span class="eyebrow">Definition</span>
+              <h2>定义</h2>
+            </div>
+            <div class="rich-card">
+              <p>
+                COG 可以对应 Cognition、Cog、Currency of
+                Guidance。中文“思元”代表思想的基本单位、知识贡献的价值单位、AI
+                时代的数据火种。
+              </p>
+              <div class="notice-card">
+                <strong>当前阶段说明</strong>
+                <p>
+                  早期思元只作为贡献权重展示。不做真实交易。不承诺收益。不诱导投资。未来是否升级为加密货币，需要合规审查后决定。
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="section-column">
+            <div class="section-heading">
+              <span class="eyebrow">Sources</span>
+              <h2>贡献来源</h2>
+            </div>
+            <div class="bullet-cards">
+              <div class="bullet-card">上传高质量路碑</div>
+              <div class="bullet-card">上传原始数据</div>
+              <div class="bullet-card">参与审稿</div>
+              <div class="bullet-card">参与复现</div>
+              <div class="bullet-card">维护项目</div>
+              <div class="bullet-card">继承项目</div>
+              <div class="bullet-card">完成传承</div>
+              <div class="bullet-card">贡献 AI 标注或数据清洗</div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="page" id="page-journal">
+        <section class="page-hero compact-hero">
+          <span class="eyebrow">Journal Layer</span>
+          <h1>Journal</h1>
+          <p>
+            Journal
+            是未竟对外呈现的编目与发布层，用于将路碑、遗产与传承链条整理成可被检索、引用与理解的文明档案。
+          </p>
+        </section>
+        <section class="section">
+          <div class="journal-grid">
+            <article class="journal-card">
+              <h3>路碑编目</h3>
+              <p>将未完成探索转化为标准化、可引用、可被 AI 检索的条目。</p>
+            </article>
+            <article class="journal-card">
+              <h3>失败地图</h3>
+              <p>从负结果和停滞原因中提炼路线图，而不是掩埋路径代价。</p>
+            </article>
+            <article class="journal-card">
+              <h3>传承追踪</h3>
+              <p>记录开路人、守路人、传承者与证道人的关系谱系。</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="page" id="page-about">
+        <section class="page-hero compact-hero">
+          <span class="eyebrow">About</span>
+          <h1>关于未竟</h1>
+          <p>
+            《未竟》不是普通期刊网站，而是“未完成探索的数据资产与文明传承平台”。
+          </p>
+          <p class="page-stage">《未竟 V3.1 MVP - Preview Freeze》</p>
+        </section>
+        <section class="section">
+          <div class="about-grid">
+            <article class="about-card">
+              <h3>传统世界</h3>
+              <p>成功 → 发表 → 被记住<br />失败 → 消失</p>
+            </article>
+            <article class="about-card">
+              <h3>未竟世界</h3>
+              <p>
+                成功 → 被记录<br />失败 → 被理解<br />停滞 → 被传承<br />数据 →
+                被检索<br />贡献 → 被回报
+              </p>
+            </article>
+            <article class="about-card about-card-wide">
+              <h3>未竟要保存什么</h3>
+              <p>
+                失败实验、未完成项目、停滞创业、科研直觉、工程路径、思想遗产、传承谱系，以及未来可被
+                AI 检索的数据资产。
+              </p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="page" id="page-submit">
+        <section class="page-hero compact-hero">
+          <span class="eyebrow">Leave a Milestone</span>
+          <h1>留下我的路碑</h1>
+          <p>
+            未竟不只接收成功结果，也接收认真探索后的失败、停滞、负结果与未完成路线。请尽可能留下数据、逻辑、失败原因与后来者可以继承的内容。
+          </p>
+        </section>
+        <section class="section">
+          <div class="submission-intro">
+            <div class="submission-intro-card">
+              <h2>在这里，未完成也可以被认真记录。</h2>
+              <p>
+                你可以提交未完成、失败、负结果、停滞、未发表但有价值的探索。未竟不要求结论完美，但要求真实、可理解，并尽量让后来者能复现或继续。
+              </p>
+              <ul class="submission-notes">
+                <li>可以先提交摘要版，不必一次性公开全部数据。</li>
+                <li>
+                  当前仍是前端原型，内容暂时保存在浏览器
+                  localStorage，不代表正式发表。
+                </li>
+                <li>
+                  正式版将逐步增加公开范围控制、匿名、撤回、版本记录和审核流程。
+                </li>
+              </ul>
+            </div>
+          </div>
+          <form
+            class="milestone-form"
+            id="submitForm"
+            onsubmit="handleFullSubmit(event)"
+            novalidate
+          >
+            <div class="form-section-title">
+              <span class="eyebrow">Submission Form</span>
+              <h2>路碑登记表</h2>
+              <p>
+                请用可被后来者理解和复查的方式填写。所有字段暂存于本地浏览器。
+              </p>
+            </div>
+            <div class="form-grid">
+              <label class="field">
+                <span>中文标题</span>
+                <input
+                  id="sf-title-zh"
+                  class="field-input"
+                  type="text"
+                  required
+                />
+                <small class="form-error"></small>
+              </label>
+              <label class="field">
+                <span>英文标题</span>
+                <input
+                  id="sf-title-en"
+                  class="field-input"
+                  type="text"
+                  required
+                />
+                <small class="form-error"></small>
+              </label>
+              <label class="field">
+                <span>项目领域</span>
+                <select id="sf-field" class="field-input" required>
+                  <option value="">请选择</option>
+                  <option value="基础科学">基础科学</option>
+                  <option value="生命科学">生命科学</option>
+                  <option value="工程系统">工程系统</option>
+                  <option value="人工智能">人工智能</option>
+                  <option value="创业与商业">创业与商业</option>
+                  <option value="人文思想">人文思想</option>
+                </select>
+                <small class="form-error"></small>
+              </label>
+              <label class="field">
+                <span>项目状态</span>
+                <select id="sf-status" class="field-input" required>
+                  <option value="">请选择</option>
+                  <option value="萌芽">萌芽</option>
+                  <option value="探索中">探索中</option>
+                  <option value="停滞中">停滞中</option>
+                  <option value="等待传承">等待传承</option>
+                  <option value="已被继承">已被继承</option>
+                  <option value="已证道">已证道</option>
+                  <option value="失联">失联</option>
+                </select>
+                <small class="form-error"></small>
+              </label>
+              <label class="field">
+                <span>开路人</span>
+                <input
+                  id="sf-pioneer"
+                  class="field-input"
+                  type="text"
+                  required
+                />
+                <small class="form-error"></small>
+              </label>
+              <label class="field">
+                <span>联系邮箱</span>
+                <input
+                  id="sf-email"
+                  class="field-input"
+                  type="email"
+                  required
+                />
+                <small class="form-error"></small>
+              </label>
+            </div>
+
+            <div class="field">
+              <span>摘要</span>
+              <textarea
+                id="sf-summary"
+                class="field-input field-textarea"
+                rows="5"
+                required
+              ></textarea>
+              <small class="form-error"></small>
+            </div>
+            <div class="field">
+              <span>初始假设</span>
+              <p class="field-hint">
+                你当时相信什么？为什么这条路线值得尝试？请写下最初的问题意识、关键判断和期待看到的结果。
+              </p>
+              <textarea
+                id="sf-hypothesis"
+                class="field-input field-textarea"
+                rows="4"
+                required
+              ></textarea>
+              <small class="form-error"></small>
+            </div>
+            <div class="field">
+              <span>方法与实验设计</span>
+              <p class="field-hint">
+                你具体做了什么？变量、材料、样本、流程、判断标准和失败条件分别是什么？写到后来者可以接手为止。
+              </p>
+              <textarea
+                id="sf-method"
+                class="field-input field-textarea"
+                rows="5"
+                required
+              ></textarea>
+              <small class="form-error"></small>
+            </div>
+            <div class="field">
+              <span>原始数据与结果</span>
+              <textarea
+                id="sf-data"
+                class="field-input field-textarea"
+                rows="5"
+                required
+              ></textarea>
+              <small class="form-error"></small>
+            </div>
+            <div class="field">
+              <span>失败或停滞原因</span>
+              <p class="field-hint">
+                卡在哪里？是理论、实验、工程、资金、时间、伦理还是数据问题？如果有多个原因，请写出主次顺序。
+              </p>
+              <textarea
+                id="sf-failure"
+                class="field-input field-textarea"
+                rows="5"
+                required
+              ></textarea>
+              <small class="form-error"></small>
+            </div>
+            <div class="field">
+              <span>可继承资产</span>
+              <textarea
+                id="sf-assets"
+                class="field-input field-textarea"
+                rows="4"
+                required
+              ></textarea>
+              <small class="form-error"></small>
+            </div>
+            <div class="field">
+              <span>后续路线建议</span>
+              <p class="field-hint">
+                如果后来者接手，最应该从哪里开始？哪些地方值得复现、绕开或重做？
+              </p>
+              <textarea
+                id="sf-future"
+                class="field-input field-textarea"
+                rows="4"
+                required
+              ></textarea>
+              <small class="form-error"></small>
+            </div>
+            <div class="field">
+              <span>传承需求</span>
+              <textarea
+                id="sf-needs"
+                class="field-input field-textarea"
+                rows="3"
+                required
+              ></textarea>
+              <small class="form-error"></small>
+            </div>
+
+            <div class="form-grid">
+              <label class="field">
+                <span>数据授权方式</span>
+                <select id="sf-license" class="field-input" required>
+                  <option value="">请选择</option>
+                  <option value="公开展示授权">公开展示授权</option>
+                  <option value="学术引用授权">学术引用授权</option>
+                  <option value="AI 检索授权">AI 检索授权</option>
+                  <option value="AI 训练授权">AI 训练授权</option>
+                  <option value="企业数据授权">企业数据授权</option>
+                  <option value="限制访问授权">限制访问授权</option>
+                  <option value="完全私有存档">完全私有存档</option>
+                </select>
+                <small class="form-error"></small>
+              </label>
+              <label class="field">
+                <span>伦理安全声明</span>
+                <textarea
+                  id="sf-ethics"
+                  class="field-input field-textarea"
+                  rows="3"
+                  required
+                ></textarea>
+                <small class="form-error"></small>
+              </label>
+            </div>
+
+            <div class="checkbox-panel">
+              <label
+                ><input id="sf-check-real" type="checkbox" />
+                我确认以上内容真实反映当前探索状态。</label
+              >
+              <label
+                ><input id="sf-check-share" type="checkbox" />
+                我理解未竟会将其作为可被后来者理解与继承的路碑保存。</label
+              >
+              <label
+                ><input id="sf-check-ai" type="checkbox" /> 我理解守灯者 AI
+                与思元 COG
+                当前仍为占位能力与权重展示，不构成投资或商业承诺。</label
+              >
+              <small class="form-error" id="check-error"></small>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">
+                留下我的路碑
+              </button>
+              <button
+                class="btn btn-secondary"
+                type="button"
+                onclick="navigateTo('archive')"
+              >
+                前往未竟档案馆
+              </button>
+            </div>
+          </form>
+        </section>
+      </section>
+
+      <section class="page" id="page-submit-success">
+        <section class="page-hero compact-hero">
+          <span class="eyebrow">Milestone Saved</span>
+          <h1>路碑已留下</h1>
+          <p>你的未完成探索已经被记录，它将成为后来者可以重新找到的一束光。</p>
+        </section>
+        <section class="section success-card">
+          <p>路碑编号</p>
+          <strong id="success-submission-id">UJ-2026-0000</strong>
+          <p id="success-time"></p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="navigateTo('archive')">
+              前往未竟档案馆
+            </button>
+            <button
+              class="btn btn-secondary"
+              onclick="navigateTo('my-submissions')"
+            >
+              查看我的路碑
+            </button>
+          </div>
+        </section>
+      </section>
+
+      <section class="page" id="page-my-submissions">
+        <section class="page-hero compact-hero">
+          <span class="eyebrow">My Milestones</span>
+          <h1>我的路碑查询</h1>
+          <p>通过邮箱或路碑编号，快速找回你留下的探索记录。</p>
+        </section>
+        <section class="section">
+          <div class="toolbar">
+            <input
+              id="my-submissions-email"
+              class="field-input"
+              type="email"
+              placeholder="输入联系邮箱"
+            />
+            <input
+              id="my-submissions-id"
+              class="field-input"
+              type="text"
+              placeholder="输入路碑编号"
+            />
+            <button class="btn btn-primary" onclick="searchMySubmissions()">
+              查询
+            </button>
+          </div>
+          <div id="mySubmissionsResults"></div>
+        </section>
+      </section>
+
+      <section class="page" id="page-milestone">
+        <div class="milestone-shell" id="milestoneContent"></div>
+      </section>
+
+      <section class="page" id="page-admin">
+        <section class="page-hero compact-hero">
+          <span class="eyebrow">Prototype Console</span>
+          <h1>原型后台</h1>
+          <p>本地原型后台仍基于浏览器 localStorage，仅用于 Phase 1 验证。</p>
+        </section>
+        <section class="section">
+          <div class="archive-console admin-console">
+            <div class="archive-console-head">
+              <span class="eyebrow">Local Console</span>
+              <h2>稿件原型管理</h2>
+              <p>仅用于本机验收 localStorage 内容，不连接后端服务。</p>
+            </div>
+            <div class="admin-toolbar">
+              <input
+                id="adminSearch"
+                class="field-input"
+                type="search"
+                placeholder="搜索编号、标题、开路人、领域"
+                oninput="renderAdmin()"
+              />
+              <button
+                class="btn btn-secondary"
+                onclick="exportSubmissionsJSON()"
+              >
+                导出 JSON
+              </button>
+              <button class="btn btn-danger" onclick="clearPrototypeData()">
+                清空测试数据
+              </button>
+            </div>
+          </div>
+          <div class="admin-stats" id="adminStats"></div>
+          <div class="admin-table-wrap" id="adminTableWrap"></div>
+          <div class="admin-pagination" id="adminPagination"></div>
+        </section>
+      </section>
+
+      <section class="page" id="page-login">
+        <section class="page-hero compact-hero">
+          <span class="eyebrow">Prototype Access</span>
+          <h1>后台登录</h1>
+          <p>仍然沿用 Phase 0 的原型密码，仅用于本地内容管理验证。</p>
+        </section>
+        <section class="section login-shell">
+          <form
+            class="login-card"
+            id="loginForm"
+            onsubmit="handleLogin(event)"
+            novalidate
+          >
+            <label class="field">
+              <span>原型密码</span>
+              <input
+                id="login-password"
+                class="field-input"
+                type="password"
+                required
+              />
+              <small class="form-error" id="login-password-error"></small>
+            </label>
+            <button class="btn btn-primary" type="submit">进入后台</button>
+          </form>
+        </section>
+      </section>
+
+      <section class="page" id="page-404">
+        <section class="page-hero compact-hero">
+          <span class="eyebrow">404</span>
+          <h1>这条路暂时没有留下坐标</h1>
+          <p>你可以返回首页，或直接进入星空古路继续查找。</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="navigateTo('home')">
+              返回首页
+            </button>
+            <button class="btn btn-secondary" onclick="navigateTo('star-road')">
+              进入星空古路
+            </button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-brand-block">
+          <div class="footer-brand-lockup">
+            <span class="brand-sigil footer-sigil" aria-hidden="true"></span>
+            <div>
+              <div class="footer-mark">The Unfinished Journal</div>
+              <h3>未竟</h3>
+            </div>
+          </div>
+          <img
+            src="logo2-clean.png"
+            alt="The Unfinished Journal 未竟"
+            class="footer-logo"
+          />
+          <p class="footer-colophon">
+            Editorial record for unfinished explorations, failed evidence and inheritable routes.
+          </p>
+          <p>失败不是终点。无人继承，才是。</p>
+          <p class="footer-freeze">《未竟 V3.1 MVP - Preview Freeze》</p>
+        </div>
+        <div>
+          <span class="footer-column-label">Archive</span>
+          <h4>核心入口</h4>
+          <a
+            href="#"
+            onclick="
+              navigateTo('star-road');
+              return false;
+            "
+            >星空古路</a
+          >
+          <a
+            href="#"
+            onclick="
+              navigateTo('archive');
+              return false;
+            "
+            >未竟档案馆</a
+          >
+          <a
+            href="#"
+            onclick="
+              navigateTo('submit');
+              return false;
+            "
+            >留下我的路碑</a
+          >
+        </div>
+        <div>
+          <span class="footer-column-label">Network</span>
+          <h4>体系页面</h4>
+          <a
+            href="#"
+            onclick="
+              navigateTo('inheritance');
+              return false;
+            "
+            >传承者社区</a
+          >
+          <a
+            href="#"
+            onclick="
+              navigateTo('keeper-ai');
+              return false;
+            "
+            >守灯者 AI</a
+          >
+          <a
+            href="#"
+            onclick="
+              navigateTo('cog');
+              return false;
+            "
+            >思元 COG</a
+          >
+        </div>
+        <div>
+          <span class="footer-column-label">Editorial</span>
+          <h4>联系与说明</h4>
+          <a href="mailto:editorial@unfinishedjournal.com"
+            >editorial@unfinishedjournal.com</a
+          >
+          <a
+            href="#"
+            onclick="
+              navigateTo('about');
+              return false;
+            "
+            >关于未竟</a
+          >
+          <a
+            href="#"
+            onclick="
+              navigateTo('journal');
+              return false;
+            "
+            >Journal</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="scripts/app.js"></script>
+  </body>
+</html>
+

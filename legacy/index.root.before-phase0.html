@@ -1,0 +1,3933 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>未竟 — Unfinished Journal · 献给所有尚未完成但不应被遗忘的思想</title>
+<meta name="description" content="未竟（Unfinished Journal）是一个面向未完成思想、失败实验、早期构想和开放协作的学术与创新平台。记录、保护、协作、继续——每一个未竟都值得被看见。">
+<meta name="keywords" content="未竟,Unfinished Journal,开放科学,学术期刊,失败实验,思想保护,链上确权,开放协作,研究碎片,学术创新">
+<meta property="og:title" content="未竟 — Unfinished Journal">
+<meta property="og:description" content="献给所有尚未完成，但不应被遗忘的思想。一个为未竟研究提供记录、保护、协作与延续的学术平台。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="logo2.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="未竟 — Unfinished Journal">
+<meta name="twitter:description" content="献给所有尚未完成，但不应被遗忘的思想。">
+<meta name="twitter:image" content="logo2.png">
+<link rel="icon" href="logo2.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#B8944B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="未竟">
+<!-- Google Analytics: 替换 G-XXXXXXXXXX 为实际 ID 并取消注释
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+-->
+<meta property="og:locale" content="zh_CN">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://unfinishedjournal.com">
+<link rel="alternate" type="application/rss+xml" title="未竟 RSS Feed" href="/rss.xml">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg-primary: #FAFAF8;
+    --bg-secondary: #F2F1ED;
+    --bg-tertiary: #EAE8E3;
+    --bg-dark: #1C1C1C;
+    --text-primary: #1A1A1A;
+    --text-secondary: #5C5C5C;
+    --text-tertiary: #8A8A8A;
+    --text-muted: #B0B0B0;
+    --gold: #B8944B;
+    --gold-light: #C9A96E;
+    --gold-pale: rgba(184, 148, 75, 0.08);
+    --gold-subtle: rgba(184, 148, 75, 0.15);
+    --gold-line: rgba(184, 148, 75, 0.3);
+    --border: #E0DED9;
+    --border-light: #EDEBE6;
+    --card-bg: #FFFFFF;
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03);
+    --card-hover-shadow: 0 2px 6px rgba(0,0,0,0.06), 0 8px 28px rgba(0,0,0,0.05);
+  }
+
+  [data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-secondary: #1E1E1E;
+    --bg-tertiary: #2A2A2A;
+    --bg-dark: #0A0A0A;
+    --text-primary: #E8E6E0;
+    --text-secondary: #B0AEA8;
+    --text-tertiary: #888680;
+    --text-muted: #666460;
+    --gold: #C9A96E;
+    --gold-light: #D4B87E;
+    --gold-pale: rgba(201, 169, 110, 0.1);
+    --gold-subtle: rgba(201, 169, 110, 0.18);
+    --gold-line: rgba(201, 169, 110, 0.35);
+    --border: #33312E;
+    --border-light: #2A2825;
+    --card-bg: #1E1E1E;
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 4px 16px rgba(0,0,0,0.15);
+    --card-hover-shadow: 0 2px 6px rgba(0,0,0,0.25), 0 8px 28px rgba(0,0,0,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 17px;
+  }
+
+  body {
+    font-family: 'Noto Serif SC', 'Inter', Georgia, serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Accessibility */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 3px;
+  }
+  .skip-link {
+    position: absolute; top: -100px; left: 16px; z-index: 200;
+    background: var(--gold); color: #fff; padding: 8px 16px;
+    border-radius: 4px; font-size: 0.85rem; text-decoration: none;
+  }
+  .skip-link:focus { top: 16px; }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  /* Navigation */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,250,248,0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); margin-left: 2px; }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--text-primary);
+    color: #fff;
+    border: none;
+    padding: 8px 22px;
+    font-size: 0.8rem;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: all 0.25s;
+  }
+  .nav-cta:hover { background: var(--gold); }
+  .nav-cta-item {
+    font-weight: 600 !important;
+    color: var(--gold) !important;
+  }
+  .nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 16px;
+  }
+  .nav-auth-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 6px 14px;
+    transition: color 0.2s;
+  }
+  .nav-auth-link:hover { color: var(--gold); }
+  .nav-auth-primary {
+    border: 1px solid var(--gold);
+    color: var(--gold);
+  }
+  .nav-auth-primary:hover { background: var(--gold); color: #fff; }
+  .nav-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 16px;
+    padding: 4px 12px;
+    border: 1px solid var(--border-light);
+  }
+  .nav-user-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-user-name {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
+  .nav-user-logout {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px 6px;
+  }
+  .nav-user-logout:hover { color: var(--gold); }
+  .nav-toggle { display: none; }
+
+  .theme-toggle {
+    background: none; border: none; cursor: pointer;
+    font-size: 1.2rem; color: var(--text-secondary); padding: 4px 8px;
+    transition: color 0.2s; line-height: 1;
+  }
+  .theme-toggle:hover { color: var(--gold); }
+.lang-toggle {
+  background: none; border: 1px solid var(--border); color: var(--text-light); cursor: pointer;
+  font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 4px; margin-left: 4px;
+}
+.lang-toggle:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* Page transition */
+  .page { opacity: 0; transition: opacity 0.25s ease; pointer-events: none; }
+  .page.active { opacity: 1; pointer-events: auto; }
+
+  /* Dark mode overrides */
+  [data-theme="dark"] .nav { background: rgba(18,18,18,0.88); }
+  [data-theme="dark"] .nav-links { background: rgba(18,18,18,0.96); }
+  [data-theme="dark"] .submit-btn { background: var(--gold); color: #1A1A1A; }
+  [data-theme="dark"] .submit-btn:hover { background: var(--gold-light); }
+  [data-theme="dark"] .btn-primary { background: var(--gold); color: #1A1A1A; }
+  [data-theme="dark"] .btn-primary:hover { background: var(--gold-light); }
+  [data-theme="dark"] input, [data-theme="dark"] select, [data-theme="dark"] textarea { color-scheme: dark; }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(184,148,75,0.04) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(184,148,75,0.12) 30%, rgba(184,148,75,0.25) 50%, rgba(184,148,75,0.12) 70%, transparent 100%);
+    opacity: 0.6;
+  }
+  .hero-crack-secondary {
+    position: absolute;
+    top: 0;
+    right: 25%;
+    width: 1px;
+    height: 70%;
+    background: linear-gradient(180deg, transparent 0%, rgba(184,148,75,0.08) 40%, rgba(184,148,75,0.15) 60%, transparent 100%);
+    opacity: 0.4;
+  }
+  .hero-content {
+    text-align: center;
+    max-width: 720px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: inline-block;
+    padding: 6px 18px;
+    border: 1px solid var(--gold-line);
+  }
+  .hero-title {
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.1em;
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+  .hero-slogan {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 48px;
+    font-weight: 400;
+  }
+  .hero-slogan em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--gold-light), #B8944B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 14px 32px;
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+  }
+  .btn-primary {
+    background: var(--text-primary);
+    color: #fff;
+  }
+  .btn-primary:hover { background: var(--gold); }
+  .btn-outline {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    padding: 14px 24px;
+  }
+  .btn-ghost:hover { color: var(--gold); }
+
+  /* Section */
+  .section {
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .section-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: inline-block;
+  }
+  .section-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Divider */
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold-line);
+    margin: 40px auto;
+  }
+  .divider-full {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 1px;
+    background: var(--border-light);
+  }
+
+  /* Manifesto */
+  .manifesto-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .manifesto-item {
+    text-align: center;
+    padding: 36px 24px;
+    position: relative;
+  }
+  .manifesto-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 0.5s ease;
+  }
+  .manifesto-item:hover::after { width: 100%; }
+  .manifesto-icon {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .manifesto-item h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: 0.03em;
+  }
+  .manifesto-item p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Quote Block */
+  .quote-block {
+    background: var(--bg-dark);
+    color: #E0DFDA;
+    padding: 80px 40px;
+    text-align: center;
+  }
+  .quote-block blockquote {
+    max-width: 740px;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+  }
+  .quote-block cite {
+    display: block;
+    margin-top: 24px;
+    font-size: 0.8rem;
+    font-style: normal;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Columns Grid */
+  .columns-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .column-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    padding: 32px 28px;
+    transition: all 0.35s;
+  }
+  .column-card:hover {
+    box-shadow: var(--card-hover-shadow);
+    transform: translateY(-2px);
+  }
+  .column-card .tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: inline-block;
+    padding: 3px 10px;
+    border: 1px solid var(--gold-pale);
+    background: var(--gold-pale);
+  }
+  .column-card h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    letter-spacing: 0.03em;
+  }
+  .column-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Process Steps */
+  .process-flow {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: flex-start;
+  }
+  .process-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding: 0 16px;
+  }
+  .process-step::after {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: calc(50% + 28px);
+    width: calc(100% - 56px);
+    height: 1px;
+    background: var(--border);
+    z-index: 0;
+  }
+  .process-step:last-child::after { display: none; }
+  .process-num {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-secondary);
+    background: var(--bg-primary);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+  }
+  .process-step:hover .process-num {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .process-step h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: 0.03em;
+  }
+  .process-step p {
+    font-size: 0.78rem;
+    color: var(--text-tertiary);
+    line-height: 1.6;
+  }
+
+  /* IP Section */
+  .ip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .ip-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 24px;
+    border-left: 1px solid var(--border-light);
+    transition: border-color 0.3s;
+  }
+  .ip-item:hover { border-left-color: var(--gold-line); }
+  .ip-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    min-width: 28px;
+    padding-top: 4px;
+  }
+  .ip-item h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .ip-item p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Token Section */
+  .token-note {
+    background: var(--bg-secondary);
+    padding: 24px 32px;
+    margin-bottom: 40px;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    text-align: center;
+    letter-spacing: 0.03em;
+    max-width: 900px;
+    margin-left: auto; margin-right: auto;
+  }
+  .token-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .token-card {
+    text-align: center;
+    padding: 32px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s;
+  }
+  .token-card:hover {
+    border-color: var(--gold-line);
+  }
+  .token-card h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    letter-spacing: 0.03em;
+  }
+  .token-card p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Project Cards */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+  .project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    padding: 28px;
+    transition: all 0.35s;
+    position: relative;
+  }
+  .project-card:hover {
+    box-shadow: var(--card-hover-shadow);
+    transform: translateY(-2px);
+  }
+  .project-card .status-tag {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    margin-bottom: 16px;
+  }
+  .status-open { background: rgba(184,148,75,0.1); color: var(--gold); }
+  .status-archived { background: rgba(140,140,140,0.1); color: #666; }
+  .status-seeking { background: rgba(100,140,100,0.1); color: #688868; }
+  .status-protected { background: rgba(120,120,160,0.1); color: #6060A0; }
+  .project-card .proj-type {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .project-card h4 {
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+  }
+  .project-card p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background: var(--bg-dark);
+    color: #D8D6D1;
+    text-align: center;
+    padding: 100px 40px;
+  }
+  .cta-section h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+  }
+  .cta-section p {
+    font-size: 0.95rem;
+    color: #A0A09A;
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto; margin-right: auto;
+  }
+  .cta-section .btn-primary {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #D8D6D1;
+  }
+  .cta-section .btn-primary:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #fff;
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--bg-dark);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 60px 40px 40px;
+    color: #888;
+  }
+  .footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  .footer-col h5 {
+    color: #CCC;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .footer-col a, .footer-col p {
+    font-size: 0.78rem;
+    line-height: 2.2;
+    color: #777;
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.72rem;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    font-family: 'Inter', sans-serif;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.85rem;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  .form-group textarea { min-height: 120px; resize: vertical; }
+  .form-error {
+    font-size: 0.72rem;
+    color: #C44;
+    margin-top: 4px;
+    display: none;
+    font-family: 'Inter', sans-serif;
+  }
+  .form-error.visible { display: block; }
+  .form-group input.error,
+  .form-group textarea.error { border-color: #C44; background: rgba(204,68,68,0.03); }
+
+  /* Animations */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Gold line accent */
+  .gold-line {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 40px;
+    position: relative;
+  }
+  .gold-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.6; }
+  }
+
+  /* FAQ Accordion */
+  .faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border-light);
+    padding: 0;
+  }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 0;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.95rem;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--gold); }
+  .faq-q .faq-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+  }
+  .faq-item.open .faq-q .faq-icon { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+  .faq-item.open .faq-a {
+    max-height: 400px;
+    padding-bottom: 20px;
+  }
+  .faq-a p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Guidelines */
+  .guidelines-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .guideline-card {
+    background: var(--card-bg);
+    padding: 28px;
+    border: 1px solid var(--border-light);
+  }
+  .guideline-card h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--gold-line);
+    padding-bottom: 10px;
+    letter-spacing: 0.03em;
+  }
+  .guideline-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .guideline-card ul li {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    padding-left: 16px;
+    position: relative;
+  }
+  .guideline-card ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+
+  /* Enhanced Disclaimer */
+  .disclaimer-box {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    padding: 28px 32px;
+    margin: 0 auto 40px;
+    max-width: 900px;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+  }
+  .disclaimer-box strong { color: var(--text-secondary); }
+
+  /* Page Routing */
+  .page { position: absolute; visibility: hidden; }
+  .page.active { position: relative; visibility: visible; }
+
+  /* Submit Page */
+  .submit-page {
+    padding-top: 80px;
+    min-height: 100vh;
+    background: var(--bg-primary);
+  }
+  .submit-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+  .submit-container h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .submit-container > p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+  .submit-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .submit-form .form-group {
+    margin-bottom: 22px;
+  }
+  .submit-form .form-group label {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+  }
+  .submit-form .form-group label .required {
+    color: var(--gold);
+    margin-left: 2px;
+  }
+  .submit-form .form-group input,
+  .submit-form .form-group select,
+  .submit-form .form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    background: var(--bg-primary);
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    transition: border-color 0.2s;
+  }
+  .submit-form .form-group input:focus,
+  .submit-form .form-group select:focus,
+  .submit-form .form-group textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  .submit-form .form-group textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+  .submit-form .form-group .hint {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+    font-family: 'Inter', sans-serif;
+  }
+  .submit-form .form-group input.error,
+  .submit-form .form-group select.error,
+  .submit-form .form-group textarea.error {
+    border-color: #C44;
+  }
+  .submit-form .form-error {
+    font-size: 0.7rem;
+    color: #C44;
+    margin-top: 4px;
+    display: none;
+    font-family: 'Inter', sans-serif;
+  }
+  .submit-form .form-error.visible { display: block; }
+
+  .file-upload-area {
+    border: 1px dashed var(--border);
+    padding: 28px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 8px;
+  }
+  .file-upload-area:hover {
+    border-color: var(--gold);
+    background: var(--gold-pale);
+  }
+  .file-upload-area p {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    margin: 0;
+  }
+  .file-upload-area .upload-types {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+
+  .checkbox-group {
+    margin: 28px 0;
+  }
+  .checkbox-group label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 14px;
+    cursor: pointer;
+    font-family: 'Noto Serif SC', serif;
+  }
+  .checkbox-group label input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--gold);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+  .checkbox-group .check-error {
+    font-size: 0.7rem;
+    color: #C44;
+    display: none;
+    font-family: 'Inter', sans-serif;
+  }
+  .checkbox-group .check-error.visible { display: block; }
+
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 0.9rem;
+    background: var(--text-primary);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s;
+    margin-top: 8px;
+  }
+  .submit-btn:hover { background: var(--gold); }
+  .submit-btn:disabled {
+    background: var(--text-muted);
+    cursor: not-allowed;
+  }
+
+  /* Success Page */
+  .success-page {
+    padding-top: 80px;
+    min-height: 100vh;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .success-container {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .success-id {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .success-container h2 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .success-container > p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+  .success-detail {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    padding: 24px;
+    text-align: left;
+    margin-bottom: 28px;
+  }
+  .success-detail dt {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .success-detail dd {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .success-detail dd:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .success-detail .status-badge {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    background: var(--gold-pale);
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .success-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+  }
+  .success-notice {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 24px;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    border-top: 1px solid var(--border-light);
+    padding-top: 20px;
+  }
+
+  /* Guidelines Page */
+  .guidelines-page {
+    padding-top: 80px;
+    min-height: 100vh;
+    background: var(--bg-primary);
+  }
+  .guidelines-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+  .guidelines-container h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .guidelines-container > p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+  .gl-section {
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .gl-section:last-child { border-bottom: none; }
+  .gl-section h3 {
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+    letter-spacing: 0.03em;
+    padding-left: 16px;
+    border-left: 2px solid var(--gold);
+  }
+  .gl-section p, .gl-section li {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+  .gl-section ul {
+    padding-left: 20px;
+  }
+  .gl-section ul li {
+    margin-bottom: 6px;
+  }
+  .gl-notice {
+    background: var(--bg-secondary);
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    line-height: 1.7;
+    margin-top: 20px;
+    border-left: 2px solid var(--gold-line);
+  }
+
+  /* Back link */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    margin-bottom: 32px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--gold); }
+
+  @media (max-width: 900px) {
+    .submit-form .form-row { grid-template-columns: 1fr; }
+    .submit-container, .guidelines-container, .success-container { padding: 24px 24px 60px; }
+  }
+
+  /* Admin Page */
+  .admin-page {
+    padding-top: 80px;
+    min-height: 100vh;
+    background: var(--bg-primary);
+  }
+  .admin-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+  .admin-container h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+  .admin-container > p {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    margin-bottom: 32px;
+    letter-spacing: 0.03em;
+  }
+  .admin-stats {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .admin-stat {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .admin-stat .stat-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--gold);
+    display: block;
+  }
+  .admin-stat .stat-label {
+    font-size: 0.68rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .admin-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border-light);
+  }
+  .admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.78rem;
+  }
+  .admin-table th {
+    background: var(--bg-secondary);
+    padding: 12px 14px;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .admin-table td {
+    padding: 11px 14px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: middle;
+  }
+  .admin-table tr:last-child td { border-bottom: none; }
+  .admin-table .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 0;
+  }
+  .badge-received { background: var(--bg-secondary); color: var(--text-secondary); }
+  .badge-screening { background: #fdf6e9; color: var(--gold); }
+  .badge-revision { background: #fef0f0; color: #C44; }
+  .badge-accepted { background: #eaf7ea; color: #2a7d2a; }
+  .badge-collab { background: #e8f0fe; color: #2a5db0; }
+  .badge-protected { background: var(--gold-pale); color: var(--gold); }
+  .badge-rejected { background: var(--bg-secondary); color: var(--text-muted); text-decoration: line-through; }
+  .admin-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .admin-actions button {
+    padding: 4px 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.63rem;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .admin-actions button:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .status-menu {
+    position: absolute;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    min-width: 110px;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .status-menu button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 7px 14px;
+    border: none;
+    border-bottom: 1px solid var(--border-light);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    color: var(--text-secondary);
+    background: transparent;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+  }
+  .status-menu button:last-child { border-bottom: none; }
+  .status-menu button:hover { background: var(--bg-secondary); color: var(--gold); }
+  .status-menu button.danger { color: #C44; }
+  .status-menu button.danger:hover { background: #fef0f0; }
+  .admin-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+  }
+  .admin-empty p { font-size: 0.85rem; margin-bottom: 4px; }
+  .admin-empty .empty-hint { font-size: 0.72rem; color: var(--text-tertiary); }
+  .admin-refresh {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    color: var(--text-tertiary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+  }
+  .admin-refresh:hover { color: var(--gold); border-color: var(--gold); }
+  .admin-toolbar { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
+  .admin-toolbar .admin-search { flex: 1; min-width: 200px; }
+  .admin-toolbar .admin-search input {
+    width: 100%; padding: 8px 14px; border: 1px solid var(--border); background: var(--card-bg);
+    font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--text-primary);
+    outline: none; transition: border-color 0.2s;
+  }
+  .admin-toolbar .admin-search input:focus { border-color: var(--gold); }
+  .admin-toolbar .admin-search input::placeholder { color: var(--text-muted); }
+  .admin-filters { display: flex; gap: 10px; align-items: center; }
+  .admin-filters select {
+    padding: 8px 12px; border: 1px solid var(--border); background: var(--card-bg);
+    font-family: 'Inter', sans-serif; font-size: 0.75rem; color: var(--text-secondary);
+    outline: none; cursor: pointer;
+  }
+  .admin-filters select:focus { border-color: var(--gold); }
+  .admin-pagination { display: flex; justify-content: center; gap: 8px; margin-top: 32px; }
+  .admin-pagination button {
+    padding: 6px 14px; border: 1px solid var(--border); background: var(--card-bg);
+    font-family: 'Inter', sans-serif; font-size: 0.72rem; color: var(--text-secondary);
+    cursor: pointer; transition: all 0.2s;
+  }
+  .admin-pagination button:hover:not(:disabled) { border-color: var(--gold); color: var(--gold); }
+  .admin-pagination button:disabled { opacity: 0.4; cursor: default; }
+  .admin-pagination button.active { background: var(--gold); color: #fff; border-color: var(--gold); }
+  .admin-pagination .page-info { padding: 6px 10px; font-size: 0.72rem; color: var(--text-muted); }
+
+  /* 404 Page */
+  .notfound-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    text-align: center;
+    padding: 40px;
+  }
+  .notfound-container h1 {
+    font-size: 5rem;
+    font-weight: 100;
+    color: var(--border);
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+    font-family: 'Inter', sans-serif;
+  }
+  .notfound-container p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    line-height: 1.7;
+  }
+  .notfound-container .btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .notfound-container .btn:hover { background: var(--gold); color: #fff; }
+
+  .notfound-search {
+    display: flex; gap: 8px; max-width: 360px; margin: 20px auto 32px;
+    justify-content: center;
+  }
+  .notfound-search input {
+    flex: 1; padding: 10px 14px; border: 1px solid var(--border);
+    border-radius: 6px; font-family: inherit; font-size: 0.9rem;
+    background: var(--card-bg); color: var(--text-primary);
+  }
+  .notfound-search input:focus { outline: none; border-color: var(--gold); }
+  .notfound-search .btn { width: auto; white-space: nowrap; }
+
+  .notfound-links {
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+  }
+  .notfound-links a {
+    color: var(--gold); text-decoration: none; font-size: 0.9rem;
+    border-bottom: 1px solid transparent; transition: border-color 0.2s;
+  }
+  .notfound-links a:hover { border-color: var(--gold); }
+
+  /* Static Pages (privacy, terms, contact) */
+  .static-page {
+    padding-top: 80px;
+    min-height: 100vh;
+    background: var(--bg-primary);
+  }
+  .static-container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+  .static-container h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .static-container .static-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.06em;
+    margin-bottom: 36px;
+  }
+  .static-container h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 36px 0 14px;
+    padding-left: 14px;
+    border-left: 2px solid var(--gold);
+  }
+  .static-container p, .static-container li {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+  .static-container ul {
+    padding-left: 20px;
+    margin-bottom: 16px;
+  }
+  .static-container ul li { margin-bottom: 6px; }
+
+  /* Loading */
+  .loading-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255,255,255,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .loading-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .loading-spinner {
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid var(--border);
+    border-top-color: var(--gold);
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (max-width: 900px) {
+    .admin-stats { grid-template-columns: repeat(2, 1fr); }
+    .admin-container, .static-container { padding: 24px 24px 60px; }
+    .notfound-container h1 { font-size: 3.5rem; }
+  }
+
+  /* Auth Pages (Login / Register) */
+  .auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    padding: 40px;
+  }
+  .auth-card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    padding: 48px 40px;
+  }
+  .auth-card h2 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+  .auth-card > p {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    margin-bottom: 32px;
+  }
+  .auth-form .form-group {
+    margin-bottom: 18px;
+  }
+  .auth-form label {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+  .auth-form input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+  .auth-form input:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  .auth-form .form-error {
+    font-size: 0.68rem;
+    color: #C44;
+    margin-top: 4px;
+    display: none;
+  }
+  .auth-form .form-error.visible { display: block; }
+  .auth-form .btn {
+    width: 100%;
+    margin-top: 8px;
+    padding: 11px 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    border: none;
+    background: var(--gold);
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: opacity 0.2s;
+  }
+  .auth-form .btn:hover { opacity: 0.85; }
+  .auth-switch {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+  }
+  .auth-switch a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .auth-switch a:hover { text-decoration: underline; }
+  @media (max-width: 500px) {
+    .auth-card { padding: 32px 24px; }
+  }
+
+  /* === Browse Page === */
+  .browse-page { min-height: 100vh; }
+  .browse-container { max-width: 1100px; margin: 0 auto; padding: 120px 40px 80px; }
+  .browse-container h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 400; color: var(--text-primary); margin-bottom: 8px; }
+  .browse-container > p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 48px; letter-spacing: 0.04em; }
+  .browse-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+  .browse-card {
+    background: var(--card-bg); border: 1px solid var(--border); padding: 28px 24px;
+    cursor: pointer; transition: all 0.25s;
+  }
+  .browse-card:hover { border-color: var(--gold); box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+  .browse-card .card-id { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.08em; margin-bottom: 12px; font-family: 'JetBrains Mono', monospace; }
+  .browse-card .card-title { font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; line-height: 1.4; }
+  .browse-card .card-author { font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 12px; }
+  .browse-card .card-meta { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .browse-card .card-date { font-size: 0.7rem; color: var(--text-muted); }
+  .browse-card .card-badge { font-size: 0.62rem; padding: 2px 8px; background: var(--bg-secondary); color: var(--text-secondary); letter-spacing: 0.05em; }
+
+  .browse-filter {
+    display: flex; gap: 12px; margin-bottom: 32px; align-items: center;
+  }
+  .browse-filter input {
+    flex: 1; padding: 10px 14px; border: 1px solid var(--border); background: var(--bg-primary);
+    font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--text-primary);
+    transition: border-color 0.2s; min-width: 0;
+  }
+  .browse-filter input:focus { outline: none; border-color: var(--gold); }
+  .browse-filter select {
+    padding: 10px 14px; border: 1px solid var(--border); background: var(--bg-primary);
+    font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--text-primary);
+    cursor: pointer; transition: border-color 0.2s; min-width: 140px;
+  }
+  .browse-filter select:focus { outline: none; border-color: var(--gold); }
+
+  /* === Submission Detail Page === */
+  .submission-page { min-height: 100vh; }
+  .submission-container { max-width: 780px; margin: 0 auto; padding: 120px 40px 80px; }
+  .submission-container .back-link { display: inline-block; margin-bottom: 32px; color: var(--text-muted); font-size: 0.78rem; text-decoration: none; letter-spacing: 0.05em; }
+  .submission-container .back-link:hover { color: var(--gold); }
+  .submission-id-header { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.06em; margin-bottom: 12px; }
+  .submission-title { font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 400; color: var(--text-primary); margin-bottom: 20px; line-height: 1.35; }
+  .submission-meta-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid var(--border-light); }
+  .submission-meta-row .meta-item { font-size: 0.8rem; color: var(--text-secondary); }
+  .submission-meta-row .meta-label { color: var(--text-muted); margin-right: 4px; }
+  .submission-section { margin-bottom: 32px; }
+  .submission-section h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 10px; font-weight: 500; }
+  .submission-section p, .submission-section .abstract-text { font-size: 0.95rem; line-height: 1.8; color: var(--text-secondary); }
+  .submission-status-line { margin-bottom: 32px; }
+  .submission-actions { display: flex; gap: 12px; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border-light); }
+  .submission-actions button {
+    padding: 8px 20px; border: 1px solid var(--border); background: transparent;
+    font-family: 'Inter', sans-serif; font-size: 0.75rem; letter-spacing: 0.05em;
+    color: var(--text-secondary); cursor: pointer; transition: all 0.2s;
+  }
+  .submission-actions button:hover { border-color: var(--gold); color: var(--gold); }
+  .submission-not-found { text-align: center; padding: 80px 20px; }
+  .submission-not-found h3 { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--text-primary); margin-bottom: 12px; }
+  .submission-not-found p { color: var(--text-muted); }
+
+  /* Rainbow subtle line */
+  .rainbow-line {
+    height: 2px;
+    background: linear-gradient(90deg,
+      var(--gold-pale) 0%,
+      rgba(184,148,75,0.5) 25%,
+      rgba(180,130,100,0.5) 50%,
+      rgba(184,148,75,0.5) 75%,
+      var(--gold-pale) 100%
+    );
+    margin: 60px auto;
+    max-width: 200px;
+  }
+
+  @media (max-width: 900px) {
+    .manifesto-grid,
+    .columns-grid,
+    .token-grid { grid-template-columns: 1fr; }
+    .ip-grid { grid-template-columns: 1fr; }
+    .process-flow { flex-direction: column; gap: 32px; }
+    .process-step::after { display: none; }
+    .guidelines-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(250,250,248,0.96);
+    flex-direction: column;
+    padding: 24px;
+    gap: 18px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .nav-links.open { display: flex; }
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--text-primary);
+    transition: all 0.3s;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+    .project-grid { grid-template-columns: 1fr; }
+    .section { padding: 60px 24px; }
+    .nav-inner { padding: 0 24px; }
+    .hero { padding: 100px 24px 60px; }
+    .hero::after, .hero-crack-secondary { display: none; }
+  }
+
+  @media (max-width: 500px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .hero-title { font-size: 2.2rem; }
+    .quote-block blockquote { font-size: 1.1rem; }
+    /* Mobile form optimization */
+    .submit-form .form-group input,
+    .submit-form .form-group select,
+    .submit-form .form-group textarea,
+    .auth-form input {
+      padding: 14px 16px;
+      font-size: 16px; /* prevent iOS zoom */
+      min-height: 48px;
+      box-sizing: border-box;
+    }
+    .submit-form .form-group textarea { min-height: 120px; }
+    .submit-btn {
+      padding: 16px;
+      font-size: 16px;
+      min-height: 52px;
+    }
+    .auth-form .btn {
+      padding: 14px 0;
+      font-size: 16px;
+      min-height: 48px;
+    }
+    .checkbox-group label { gap: 12px; font-size: 0.85rem; padding: 4px 0; }
+    .file-upload-area { padding: 24px 16px; }
+    .my-submissions-form { grid-template-columns: 1fr; }
+    .browse-filter { flex-direction: column; }
+    .browse-filter select { width: 100%; }
+  }
+
+  /* === My Submissions Page === */
+  .my-submissions-page { min-height: 100vh; }
+  .my-submissions-container { max-width: 780px; margin: 0 auto; padding: 120px 40px 80px; }
+  .my-submissions-container h2 { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 400; color: var(--text-primary); margin-bottom: 8px; }
+  .my-submissions-container > p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 32px; letter-spacing: 0.04em; }
+  .my-submissions-form { display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; margin-bottom: 40px; }
+  .my-submissions-form .form-group label { display: block; font-size: 0.72rem; color: var(--text-secondary); margin-bottom: 6px; }
+  .my-submissions-form input { width: 100%; padding: 10px 14px; border: 1px solid var(--border); background: var(--bg-primary); font-family: 'Inter', sans-serif; font-size: 0.85rem; }
+  .my-submissions-form input:focus { outline: none; border-color: var(--gold); }
+  .my-submissions-results { margin-bottom: 40px; }
+  .my-submissions-list { display: flex; flex-direction: column; gap: 16px; }
+  .my-submission-card {
+    background: var(--card-bg); border: 1px solid var(--border); padding: 24px;
+    transition: border-color 0.2s;
+  }
+  .my-submission-card:hover { border-color: var(--gold); }
+  .my-submission-card .card-id { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.08em; margin-bottom: 8px; }
+  .my-submission-card .card-title { font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; line-height: 1.4; }
+  .my-submission-card .card-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 8px; }
+  .my-submission-card .card-date { font-size: 0.7rem; color: var(--text-muted); }
+  .my-submission-card .card-badge { font-size: 0.62rem; padding: 2px 8px; background: var(--bg-secondary); color: var(--text-secondary); letter-spacing: 0.05em; }
+  .my-submission-card .card-next { font-size: 0.75rem; color: var(--text-secondary); }
+  .my-submissions-notice {
+    background: var(--gold-pale); border-left: 2px solid var(--gold); padding: 16px 20px;
+    font-size: 0.75rem; color: var(--text-secondary); line-height: 1.6;
+  }
+  .my-submissions-notice strong { color: var(--text-primary); }
+  @media (max-width: 768px) {
+    .my-submissions-form { grid-template-columns: 1fr; }
+    .my-submissions-container { padding: 100px 24px 60px; }
+  }
+
+  /* === Admin Submission Detail Page === */
+  .admin-submission-page { min-height: 100vh; }
+  .admin-submission-container { max-width: 1200px; margin: 0 auto; padding: 120px 40px 80px; }
+  .admin-submission-container .back-link { display: inline-block; margin-bottom: 32px; color: var(--text-muted); font-size: 0.78rem; text-decoration: none; letter-spacing: 0.05em; }
+  .admin-submission-container .back-link:hover { color: var(--gold); }
+  .admin-detail-header { margin-bottom: 40px; }
+  .admin-detail-header .submission-id-header { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.06em; margin-bottom: 8px; }
+  .admin-detail-header .submission-title { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 400; color: var(--text-primary); margin-bottom: 16px; line-height: 1.35; }
+  .admin-detail-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; }
+  .admin-detail-main { display: flex; flex-direction: column; gap: 32px; }
+  .detail-section { background: var(--card-bg); border: 1px solid var(--border-light); padding: 24px; }
+  .detail-section h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 16px; font-weight: 500; }
+  .detail-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border-light); font-size: 0.85rem; }
+  .detail-row:last-child { border-bottom: none; }
+  .detail-label { color: var(--text-muted); min-width: 120px; }
+  .abstract-text { font-size: 0.95rem; line-height: 1.8; color: var(--text-secondary); }
+  .file-upload-placeholder { background: var(--bg-primary); padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.8rem; }
+  .detail-notes { width: 100%; min-height: 120px; padding: 12px; border: 1px solid var(--border); background: var(--bg-primary); font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--text-primary); resize: vertical; }
+  .detail-notes:focus { outline: none; border-color: var(--gold); }
+  .status-timeline { display: flex; flex-direction: column; gap: 20px; }
+  .timeline-step { display: flex; align-items: flex-start; gap: 12px; }
+  .timeline-step.active .timeline-dot { background: var(--gold); }
+  .timeline-step:not(.active) { opacity: 0.5; }
+  .timeline-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); margin-top: 4px; flex-shrink: 0; }
+  .timeline-content { display: flex; flex-direction: column; }
+  .timeline-label { font-size: 0.8rem; color: var(--text-primary); }
+  .timeline-time { font-size: 0.7rem; color: var(--text-muted); }
+  .detail-actions { display: flex; flex-direction: column; gap: 8px; }
+  .detail-actions .btn-sm { padding: 8px 12px; font-size: 0.75rem; }
+  .detail-actions .btn-danger { background: #C44; color: white; border: none; }
+  .detail-actions .btn-danger:hover { opacity: 0.85; }
+  @media (max-width: 900px) {
+    .admin-detail-grid { grid-template-columns: 1fr; }
+    .admin-submission-container { padding: 100px 24px 60px; }
+  }
+
+  /* ===== Print Styles ===== */
+  @media print {
+    .nav, .nav-toggle, .theme-toggle, .nav-cta, .nav-auth, .nav-user,
+    .loading-overlay, .footer { display: none !important; }
+    body { font-size: 12pt; color: #000; background: #fff; }
+    .page { position: static !important; visibility: visible !important; opacity: 1 !important; }
+    .page.active { position: static !important; }
+    a { color: #000; text-decoration: underline; }
+    .hero { padding-top: 40px; }
+    .manifesto, .columns, .process, .review, .projects, .faq { page-break-inside: avoid; }
+    h2, h3 { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">跳至主要内容</a>
+
+<nav class="nav" aria-label="主导航">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><img src="logo2.png" alt="未竟" style="height:32px;vertical-align:middle;margin-right:10px;">未竟<span>·</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" data-i18n="宣言" onclick="closeNav(); navigateTo('home'); setTimeout(function(){document.getElementById('manifesto').scrollIntoView({behavior:'smooth'});},100); return false;">宣言</a></li>
+      <li><a href="#columns" onclick="closeNav()">栏目</a></li>
+      <li><a href="#process" onclick="closeNav()">投稿</a></li>
+      <li><a href="#" onclick="closeNav(); navigateTo('guidelines'); return false;">指南</a></li>
+      <li><a href="#review" onclick="closeNav()">审稿</a></li>
+      <li><a href="#projects" onclick="closeNav()">项目</a></li>
+      <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
+      <li><a href="#" data-i18n="档案" onclick="closeNav(); navigateTo('browse'); return false;">档案</a></li>
+      <li><a href="#" onclick="closeNav(); navigateTo('submit'); return false;" class="nav-cta-item">提交</a></li>
+      <li><a href="#" onclick="closeNav(); navigateTo('admin'); return false;">管理</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="切换暗色模式" title="切换暗色模式">◐</button>
+    <button class="lang-toggle" id="langToggle" onclick="toggleLang()" aria-label="Switch language" title="English / 中文">EN</button>
+    <button class="nav-cta" data-i18n="提交未竟之作" onclick="navigateTo('submit')">提交未竟之作</button>
+    <span class="nav-auth" id="navAuth">
+      <a href="#" class="nav-auth-link" data-i18n="原型后台" onclick="event.preventDefault(); navigateTo('admin');">原型后台</a>
+      <a href="#" class="nav-auth-link nav-auth-primary" data-i18n="加入未竟" onclick="event.preventDefault(); navigateTo('join');">加入未竟</a>
+    </span>
+    <span class="nav-user" id="navUser" style="display:none">
+      <span class="nav-user-avatar">U</span>
+      <span class="nav-user-name" id="navUserName"></span>
+      <button class="nav-user-logout" onclick="handleLogout()" title="退出">退出</button>
+    </span>
+  </div>
+</nav>
+
+<div id="page-home" class="page active" role="main" aria-label="首页内容">
+
+<section class="hero" id="main-content">
+  <div class="hero-crack-secondary"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Unfinished Journal</div>
+    <h1 class="hero-title">未竟</h1>
+    <p class="hero-subtitle">JOURNAL OF THE UNFINISHED · OPEN INTELLECTUAL COMMONS</p>
+    <p class="hero-slogan" data-i18n="献给所有尚未完成，但不应被遗忘的思想。">
+      献给所有<em>尚未完成</em>，但不应被遗忘的思想。
+    </p>
+    <div class="hero-buttons">
+      <button class="btn btn-primary" data-i18n="提交未竟之作" onclick="navigateTo('submit')">提交未竟之作</button>
+      <a href="#manifesto" class="btn btn-outline" data-i18n="阅读宣言">阅读宣言</a>
+      <a href="#projects" class="btn btn-ghost" data-i18n="探索开放问题">探索开放问题</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider-full"></div>
+
+<section class="section" id="manifesto">
+  <div class="section-header fade-in">
+    <div class="section-label">Manifesto</div>
+    <h2 class="section-title" data-i18n="未竟宣言">未竟宣言</h2>
+    <p class="section-desc">
+      世界上绝大多数有价值的思想，从未成为一篇完整的论文。它们停留在手稿、邮件、实验记录、会议闲谈，或被遗弃在硬盘深处。我们为它们建造一个家。
+    </p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="manifesto-grid">
+    <div class="manifesto-item fade-in">
+      <span class="manifesto-icon">—</span>
+      <h3>失败实验同样揭示真理</h3>
+      <p>一个负结果可能比十篇正结果论文更接近真相。它告诉我们哪条路不通，以及为什么不通——这是科学最诚实的声音，却常常在发表压力下被埋没。</p>
+    </div>
+    <div class="manifesto-item fade-in">
+      <span class="manifesto-icon">…</span>
+      <h3>未完成不等于无价值</h3>
+      <p>一个未完成的构想，可能正因其开放性而蕴含更多可能。我们保护的正是这种可能：它尚未被定型，因此尚未被局限。</p>
+    </div>
+    <div class="manifesto-item fade-in">
+      <span class="manifesto-icon">†</span>
+      <h3>思想先于论文，理应被保护</h3>
+      <p>历史上的重大发现，往往起源于一个粗糙的早期想法。未竟为这些思想的萌芽提供时间戳、版本记录和归属证明——在它们成为论文之前。</p>
+    </div>
+    <div class="manifesto-item fade-in">
+      <span class="manifesto-icon">∩</span>
+      <h3>奖励过程，而非仅奖励冠军</h3>
+      <p>现代学术体系只嘉奖最终发表者。但在未竟，探索者、质疑者、失败的尝试者和勇敢的跨学科闯入者，同样值得被看见、被尊重、被记录。</p>
+    </div>
+    <div class="manifesto-item fade-in">
+      <span class="manifesto-icon">~</span>
+      <h3>未竟不是失败，是中间态</h3>
+      <p>每一个未竟项目都是一条通向可能未来的路径。它不是死胡同，而是分岔口。未竟的存在，就是为了让这些分岔口被标注在地图上，而非消失。</p>
+    </div>
+    <div class="manifesto-item fade-in">
+      <span class="manifesto-icon">∞</span>
+      <h3>开放协作，而非封闭竞争</h3>
+      <p>如果一个问题被一群人同时思考，为什么他们要竞争？为什么不能协作？未竟建立的是一个认知公域，在这里，思想可以安全地流动、嫁接和进化。</p>
+    </div>
+  </div>
+</section>
+
+<section class="quote-block">
+  <blockquote>
+    "科学与思想的历史，是由无数未竟的片段编织而成的。那些被丢弃的手稿、被遗忘的实验、被放弃的假说——它们并非废墟，而是地基。"
+  </blockquote>
+  <cite>—— 未竟 · 宣言第一章</cite>
+</section>
+
+<section class="section" id="columns">
+  <div class="section-header fade-in">
+    <div class="section-label">Columns</div>
+    <h2 class="section-title">期刊栏目</h2>
+    <p class="section-desc">每一种未完成的形式，都有一个属于它的容器。</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="columns-grid">
+    <div class="column-card fade-in">
+      <span class="tag">Unfinished Papers</span>
+      <h3>未竟论文</h3>
+      <p>有明确研究方向与初步结论、但因时间、资源或学术时机未及完善的研究构想。它们有骨架，等待血肉。</p>
+    </div>
+    <div class="column-card fade-in">
+      <span class="tag">Failed Experiments</span>
+      <h3>失败实验档案</h3>
+      <p>系统记录负结果、错误路线、失败样品的完整档案。每一个「此路不通」都是对后来者的慷慨馈赠，是科学最珍贵的负空间。</p>
+    </div>
+    <div class="column-card fade-in">
+      <span class="tag">Open Problems</span>
+      <h3>开放问题</h3>
+      <p>由社区共同维护的未解决问题清单。每一个问题都经过同行评议，附带悬赏、已有尝试和已知的卡点，等待新的视角介入。</p>
+    </div>
+    <div class="column-card fade-in">
+      <span class="tag">Fragments</span>
+      <h3>思想碎片</h3>
+      <p>早期假说、跨学科灵感、尚未成型的理论雏形。它们粗糙、脆弱，但可能是某个重大突破的第一块拼图。碎片在这里被编号、被保护。</p>
+    </div>
+    <div class="column-card fade-in">
+      <span class="tag">Collaboration</span>
+      <h3>协作招募</h3>
+      <p>项目发起者公开寻找合作者：需要实验验证的理论、需要数学建模的猜想、需要工程实现的论文。跨学科协作的婚介所。</p>
+    </div>
+    <div class="column-card fade-in">
+      <span class="tag">Research Rent</span>
+      <h3>继续研究基金</h3>
+      <p>为高潜力的未竟项目提供微资助。资金来自社区贡献池，由同行评议分配。不是投资，是「研究租金」——为思想的存续付费。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="section-header fade-in">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">投稿与流转</h2>
+    <p class="section-desc">从未竟到继续，每一个阶段都值得被认真对待。</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="process-flow">
+    <div class="process-step fade-in">
+      <div class="process-num">1</div>
+      <h4>提交未竟想法</h4>
+      <p>上传手稿、实验记录、假说或负结果。可选择公开、半公开或私密模式。不需要完整的引用格式或 polished 文本，保持原貌即有价值。</p>
+    </div>
+    <div class="process-step fade-in">
+      <div class="process-num">2</div>
+      <h4>时间戳与版本记录</h4>
+      <p>系统为每一次提交和修改生成不可篡改的时间戳与版本快照。这是你的思想优先权证明，也是未来追溯的完整线索。</p>
+    </div>
+    <div class="process-step fade-in">
+      <div class="process-num">3</div>
+      <h4>社区初筛与评论</h4>
+      <p>经社区同行快速初筛后公开。评论以建设性为导向——不是拒稿，而是帮助作者发现盲点、补充文献、找到合作者。</p>
+    </div>
+    <div class="process-step fade-in">
+      <div class="process-num">4</div>
+      <h4>开放协作或保护</h4>
+      <p>作者可选择开放协作（任何人都可 fork 并推进）或隐藏保护（仅受邀者可见）。保护不是封锁，而是为思想争取安全的发育时间。</p>
+    </div>
+    <div class="process-step fade-in">
+      <div class="process-num">5</div>
+      <h4>进入未竟档案</h4>
+      <p>所有提交永久存档于未竟档案中。即使项目最终被放弃，它的存在本身就是对学术生态的贡献——为后来者标记已被探索过的坐标。</p>
+    </div>
+    <div class="process-step fade-in">
+      <div class="process-num">6</div>
+      <h4>获得继续研究机会</h4>
+      <p>高潜力项目可进入社区资助池，获得微资助或研究租金。被引用的思想碎片可积累贡献记录，为作者带来学术声誉。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="guidelines">
+  <div class="section-header fade-in">
+    <div class="section-label">Author Guidelines</div>
+    <h2 class="section-title">投稿指南</h2>
+    <p class="section-desc">我们对内容的要求：保持诚实。内容不必完整、不必优雅、不必有结论。但必须真实。</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="guidelines-grid">
+    <div class="guideline-card fade-in">
+      <h4>接受的内容类型</h4>
+      <ul>
+        <li>未完成但有明确研究方向的论文草稿</li>
+        <li>系统记录的负结果与失败实验报告</li>
+        <li>开放性问题及其已有尝试的综述</li>
+        <li>早期假说、跨学科猜想、思想碎片</li>
+        <li>协作招募：寻找特定领域的合作者</li>
+        <li>对已有未竟项目的评论、补充或反驳</li>
+      </ul>
+    </div>
+    <div class="guideline-card fade-in">
+      <h4>格式与语言</h4>
+      <ul>
+        <li>接受中文、英文或双语提交</li>
+        <li>无强制格式要求——手稿、笔记、Markdown、LaTeX 均可</li>
+        <li>建议包含：问题描述、当前进展、已知卡点、期望的合作方向</li>
+        <li>参考文献非必需，但鼓励标注已有相关工作</li>
+        <li>图表、数据、代码片段鼓励随文提交</li>
+      </ul>
+    </div>
+    <div class="guideline-card fade-in">
+      <h4>伦理与原创性</h4>
+      <ul>
+        <li>提交内容必须为提交者原创或已获原作者授权</li>
+        <li>不得提交已正式发表且版权已转让的完整论文</li>
+        <li>涉及人体实验、动物实验的内容需标注伦理审批状态</li>
+        <li>平台仅做基础合规审查，不替代机构伦理委员会</li>
+        <li>抄袭或数据造假一经查实将撤销所有关联内容</li>
+      </ul>
+    </div>
+    <div class="guideline-card fade-in">
+      <h4>可见性与撤回</h4>
+      <ul>
+        <li>提交时可选择公开、半公开或私密三种可见性</li>
+        <li>私密内容设 6 个月保护期，到期前可申请延长</li>
+        <li>作者可随时申请撤回——但已生成的时间戳和版本记录不可删除</li>
+        <li>撤回后内容不再公开展示，但档案编号和元数据保留</li>
+        <li>fork 出的协作分支不受原项目撤回影响</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="review">
+  <div class="section-header fade-in">
+    <div class="section-label">Review Process</div>
+    <h2 class="section-title">审稿与社区评议</h2>
+    <p class="section-desc">未竟的审稿哲学不同于传统期刊——我们不拒稿，只评估透明度和建设性。</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="ip-grid">
+    <div class="ip-item fade-in">
+      <span class="ip-num">01</span>
+      <div>
+        <h4>快速初筛（48 小时内）</h4>
+        <p>社区编辑团队检查提交内容的完整性、原创声明和伦理标注。不评判学术价值——只确认内容诚实且属于作者声称的类型。初筛通过即生成永久时间戳。</p>
+      </div>
+    </div>
+    <div class="ip-item fade-in">
+      <span class="ip-num">02</span>
+      <div>
+        <h4>公开评论期（2–4 周）</h4>
+        <p>通过初筛的内容进入公开评论期。社区成员（需注册并绑定学术身份）可提交建设性评论：补充文献、指出盲点、提出合作意向。评论本身也被记录为贡献。</p>
+      </div>
+    </div>
+    <div class="ip-item fade-in">
+      <span class="ip-num">03</span>
+      <div>
+        <h4>编辑综述（可选）</h4>
+        <p>对讨论活跃的项目，编辑团队可撰写综述性评价，总结社区意见并标注项目的潜在价值。综述不替代传统同行评审，而是帮助读者快速理解项目在社区中的反响。</p>
+      </div>
+    </div>
+    <div class="ip-item fade-in">
+      <span class="ip-num">04</span>
+      <div>
+        <h4>持续开放状态</h4>
+        <p>项目通过初筛后长期保持开放。作者可随时更新版本，协作者可申请 fork，评论持续累积。未竟不设"终审"——因为思想从未真正完成。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ip">
+  <div class="section-header fade-in">
+    <div class="section-label">IP & Attribution</div>
+    <h2 class="section-title">思想保护与贡献确权</h2>
+    <p class="section-desc">我们相信，思想的归属权可以被技术手段清晰记录，而不必依赖传统出版体系。</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="ip-grid">
+    <div class="ip-item fade-in">
+      <span class="ip-num">01</span>
+      <div>
+        <h4>时间戳锚定</h4>
+        <p>每一个上传内容在提交瞬间即生成带时间戳的版本记录，形成无可争议的「思想在先」证据链。这不是法律意义上的专利，但在知识溯源中具有强证明力。</p>
+      </div>
+    </div>
+    <div class="ip-item fade-in">
+      <span class="ip-num">02</span>
+      <div>
+        <h4>版本树与演化图谱</h4>
+        <p>思想不是静止的。每一次修改、每一次 fork、每一次协作贡献，都在版本树上留下节点。完整的演化历史比单一终态更能反映研究的真实进程。</p>
+      </div>
+    </div>
+    <div class="ip-item fade-in">
+      <span class="ip-num">03</span>
+      <div>
+        <h4>可见性分级</h4>
+        <p>作者可选择公开（对全网可见）、半公开（仅对社区成员可见）或私密协作（仅受邀者可见）。保护期可设，到期后自动转为公开档案。</p>
+      </div>
+    </div>
+    <div class="ip-item fade-in">
+      <span class="ip-num">04</span>
+      <div>
+        <h4>链上确权（未来）</h4>
+        <p>平台架构预留了区块链接入层。未来可将版本快照的哈希值锚定到公链上，利用分布式账本实现去中心化的思想确权——无需依赖任何中心化机构。</p>
+      </div>
+    </div>
+    <div class="ip-item fade-in">
+      <span class="ip-num">05</span>
+      <div>
+        <h4>贡献者图谱</h4>
+        <p>每一位评论者、协作者、fork 推进者的贡献都被记录并可视化。当项目最终产生论文或商业化成果时，完整的贡献者图谱提供清晰的署名与权益分配依据。</p>
+      </div>
+    </div>
+    <div class="ip-item fade-in">
+      <span class="ip-num">06</span>
+      <div>
+        <h4>永久存档与可引用</h4>
+        <p>未竟档案中的每一项内容都拥有永久 DOI 标识符，可在任何学术语境中被引用。即使内容未完成，它的存在和优先权已被正式记录。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rainbow-line"></div>
+
+<section class="section" id="token">
+  <div class="section-header fade-in">
+    <div class="section-label">Concept Prototype</div>
+    <h2 class="section-title">社区激励与贡献记录</h2>
+    <p class="section-desc">以思想贡献为核心的价值记录体系，目前处于概念探索阶段。</p>
+  </div>
+  <div class="disclaimer-box">
+    <strong>概念原型声明：</strong>以下内容为平台未来可能探索的社区激励方向描述，<strong>不代表任何已发行的代币、金融产品、证券或投资邀约</strong>。未竟目前不发行任何加密货币或链上资产。任何未来经济机制的实施将严格遵守相关司法管辖区的法律法规。
+  </div>
+  <div class="token-grid">
+    <div class="token-card fade-in">
+      <h4>贡献记录</h4>
+      <p>基于提交、评审、协作等行为自动累积的信用记录，衡量思想贡献的广度与深度。</p>
+    </div>
+    <div class="token-card fade-in">
+      <h4>社区资助池</h4>
+      <p>由社区捐赠和平台自有资金构成的项目支持池，优先支持高潜力且缺乏传统经费的早期探索。</p>
+    </div>
+    <div class="token-card fade-in">
+      <h4>微资助与悬赏</h4>
+      <p>面向早期构想的小额资金支持及开放问题悬赏——重点评估问题的新颖性而非结果的确定性。</p>
+    </div>
+  </div>
+  <div class="gold-line" style="margin-top: 48px;"></div>
+</section>
+
+<section class="section" id="projects">
+  <div class="section-header fade-in">
+    <div class="section-label">Example Projects</div>
+    <h2 class="section-title">示例项目</h2>
+    <p class="section-desc">以下为虚构示例，用于展示未竟平台上不同类型思想碎片的呈现方式。</p>
+  </div>
+  <div class="project-grid">
+    <div class="project-card fade-in">
+      <span class="status-tag status-archived">Archived</span>
+      <div class="proj-type">Failed Experiment</div>
+      <h4>A Failed Actuator That Still Revealed a New Material Principle</h4>
+      <p>在测试一种新型介电弹性体执行器时，实验未达到预期应变输出，但意外揭示了材料在循环加载下的自组织微结构行为——这一发现后来被另一团队独立验证并发表。</p>
+    </div>
+    <div class="project-card fade-in">
+      <span class="status-tag status-open">Open</span>
+      <div class="proj-type">Open Problem</div>
+      <h4>How to Build Soft Robots with Macro-Scale Output Force?</h4>
+      <p>软体机器人领域长期面临的瓶颈：如何在保持柔顺性的同时产生公斤级以上的输出力？现有方案在功率密度上远逊于传统电机。悬赏 5,000 美元寻找突破性思路。</p>
+    </div>
+    <div class="project-card fade-in">
+      <span class="status-tag status-protected">Protected</span>
+      <div class="proj-type">Fragment</div>
+      <h4>A Theory of Conformational Artificial Muscle</h4>
+      <p>基于蛋白质构象变化原理，猜想可以设计一种分子级别的人工肌肉纤维。理论框架已有雏形，但缺乏合成路径和表征手段。目前处于保护模式，寻找有机化学合作者。</p>
+    </div>
+    <div class="project-card fade-in">
+      <span class="status-tag status-archived">Archived</span>
+      <div class="proj-type">Negative Result</div>
+      <h4>Conductive Polymer Electrodes with Unexpected Fatigue</h4>
+      <p>系统测试了六种导电聚合物作为神经电极涂层的长期稳定性。所有材料在超过 10^6 次循环后出现不可预期的疲劳断裂。完整数据集和失效分析报告已归档。</p>
+    </div>
+    <div class="project-card fade-in">
+      <span class="status-tag status-seeking">Seeking Collaborators</span>
+      <div class="proj-type">Collaboration</div>
+      <h4>Seeking Collaborators for Wearable Exoskeleton Interface</h4>
+      <p>我们有一个可穿戴外骨骼控制界面的初步原型，需要人因工程、肌电信号处理和嵌入式系统方面的合作者。已有机械设计和初步的运动学模型。</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>你的未竟之作，值得被看见。</h2>
+  <p>不必等到完美。不必等到完成。把思想的火花留在这里，让时间赋予它重量。</p>
+  <button class="btn btn-primary" onclick="navigateTo('submit')" style="font-size:0.9rem; padding:16px 40px;">提交未竟之作</button>
+</section>
+
+<section class="section" id="faq">
+  <div class="section-header fade-in">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">常见问题</h2>
+    <div class="gold-line"></div>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item fade-in">
+      <button class="faq-q" onclick="toggleFaq(this)">在未竟上发布的内容会影响后续向传统期刊投稿吗？<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>不会。未竟不是一个传统期刊，发表在未竟上的内容不构成「已发表论文」。我们鼓励作者在任何阶段将内容同时或后续提交至传统期刊。未竟的时间戳记录反而可以帮助作者证明思想优先权。建议在向传统期刊提交时主动说明内容已存档于未竟，大多数期刊对此持开放态度。</p></div>
+    </div>
+    <div class="faq-item fade-in">
+      <button class="faq-q" onclick="toggleFaq(this)">如何保护我的原创想法不被抄袭？<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>提交即生成不可篡改的时间戳——这是你在未竟上的「思想优先权证书」。如果选择私密模式，内容仅在受邀者之间可见，直到保护期结束。我们建议在提交时选择半公开或私密模式以保留控制权，并在内容中明确标注「本作品首发于未竟平台」。时间戳 + 版本记录 + 平台存档的组合，在法律和学术上都构成有力的在先权利证据。</p></div>
+    </div>
+    <div class="faq-item fade-in">
+      <button class="faq-q" onclick="toggleFaq(this)">投稿需要付费吗？<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>不需要。未竟目前对所有基本功能（提交、存档、评论、协作）完全免费。未来的微资助和悬赏功能由社区自愿参与，不影响基本的投稿和阅读权限。我们的长期目标是依靠社区捐赠和机构赞助维持运营，而非向作者收费。</p></div>
+    </div>
+    <div class="faq-item fade-in">
+      <button class="faq-q" onclick="toggleFaq(this)">我可以删除或撤回已提交的内容吗？<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>可以申请撤回——内容将不再公开展示。但已生成的时间戳和版本记录不可删除（这是思想溯源的核心基础设施）。这种设计类似于 arXiv 的撤回机制：文章被标记为撤回，但元数据保留。如果你的内容涉及法律或安全风险，平台将优先配合处理。</p></div>
+    </div>
+    <div class="faq-item fade-in">
+      <button class="faq-q" onclick="toggleFaq(this)">未竟是否有 ISSN 或正式期刊资质？<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>目前未竟处于概念验证阶段，尚未申请 ISSN。我们的定位是「新型学术基础设施」而非传统期刊——更接近 arXiv 与 GitHub 的混合体。随着平台内容积累和社区成熟，我们将评估申请 ISSN 和建立更正式的学术索引的必要性。</p></div>
+    </div>
+    <div class="faq-item fade-in">
+      <button class="faq-q" onclick="toggleFaq(this)">谁可以成为审稿人或编辑？<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>社区编辑团队由各领域的活跃研究者志愿组成。任何拥有学术发表记录或同等专业背景的人士可申请成为编辑。普通社区成员无需申请即可对公开项目提交评论——这些评论本身就是一种开放审稿。编辑的角色更接近「策展人」而非「把关人」。</p></div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /page-home -->
+
+<!-- ===== SUBMIT PAGE ===== -->
+<div id="page-submit" class="page">
+  <div class="submit-page">
+    <div class="submit-container">
+      <a href="#" class="back-link" onclick="navigateTo('home'); return false;">← 返回首页</a>
+      <h2>提交未竟之作</h2>
+      <p>不需要完美的格式。手稿、笔记、实验记录、假说草稿——保持原貌即可。以下是你的学术档案登记表。</p>
+
+      <form class="submit-form" id="submitForm" onsubmit="handleFullSubmit(event)" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sf-name">作者姓名 <span class="required">*</span></label>
+            <input type="text" id="sf-name" placeholder="你的真实姓名或笔名" required>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="sf-email">邮箱 <span class="required">*</span></label>
+            <input type="email" id="sf-email" placeholder="用于接收审稿通知" required>
+            <span class="form-error"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sf-affiliation">所属机构</label>
+          <input type="text" id="sf-affiliation" placeholder="大学 / 研究所 / 独立研究者">
+        </div>
+        <div class="form-group">
+          <label for="sf-title">作品标题 <span class="required">*</span></label>
+          <input type="text" id="sf-title" placeholder="即使只是临时的名字也可以" required>
+          <span class="form-error"></span>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sf-type">投稿类型 <span class="required">*</span></label>
+            <select id="sf-type" required>
+              <option value="">请选择</option>
+              <option>未竟论文</option>
+              <option>失败实验档案</option>
+              <option>开放问题</option>
+              <option>思想碎片</option>
+              <option>协作招募</option>
+              <option>研究备忘录</option>
+            </select>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="sf-stage">当前阶段 <span class="required">*</span></label>
+            <select id="sf-stage" required>
+              <option value="">请选择</option>
+              <option>Concept</option>
+              <option>Preliminary Experiment</option>
+              <option>Negative Result</option>
+              <option>Seeking Collaborators</option>
+              <option>Protected Draft</option>
+              <option>Ready for Review</option>
+            </select>
+            <span class="form-error"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sf-abstract">摘要 <span class="required">*</span></label>
+          <textarea id="sf-abstract" placeholder="用 100–500 字描述这个项目的核心想法、当前进展和你遇到的瓶颈。不需要完美——如实记录即可。" required></textarea>
+          <span class="hint" id="abstract-count">0 / 500 字</span>
+          <span class="form-error"></span>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sf-visibility">可见性 <span class="required">*</span></label>
+            <select id="sf-visibility" required>
+              <option value="">请选择</option>
+              <option>公开展示</option>
+              <option>半公开，仅展示摘要</option>
+              <option>私密提交，仅供编辑部查看</option>
+            </select>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="sf-collab">是否需要协作者</label>
+            <select id="sf-collab">
+              <option>暂不需要</option>
+              <option>需要，请帮我寻找</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sf-funding">是否希望进入未来资助池</label>
+          <select id="sf-funding">
+            <option>暂不考虑</option>
+            <option>感兴趣，请了解更多</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>文件上传</label>
+          <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
+            <p>点击上传或拖拽文件到此处</p>
+            <div class="upload-types">支持 PDF · 图片 · CSV · ZIP。当前为静态原型，正式投稿请将文件发送至 editorial@unfinishedjournal.com</div>
+          </div>
+          <input type="file" id="fileInput" style="display:none" multiple accept=".pdf,.png,.jpg,.jpeg,.csv,.zip,.docx,.txt" onchange="updateFileLabel(this)">
+          <span class="hint" id="file-label">尚未选择文件</span>
+        </div>
+
+        <div class="checkbox-group">
+          <label><input type="checkbox" id="sf-original" required> 我确认该内容为本人原创或已获得原作者授权</label>
+          <label><input type="checkbox" id="sf-patent" required> 我理解「未竟」当前版本的时间戳记录不构成正式专利保护或链上确权，其法律效力以平台所在地司法管辖区为准</label>
+          <label><input type="checkbox" id="sf-record" required> 我同意平台记录提交时间、版本信息，并在所选可见性范围内展示</label>
+          <span class="check-error" id="check-error">请确认以上所有声明</span>
+        </div>
+
+        <button type="submit" class="submit-btn">提交并生成时间戳</button>
+        <div style="background:#FFF3CD;border:1px solid #FFC107;padding:14px 18px;margin-top:20px;font-size:0.78rem;color:#856404;line-height:1.7;text-align:left;">
+          <strong>当前为静态官网原型。您填写的投稿数据仅保存在本地浏览器中，不会自动发送到服务器。</strong><br>
+          正式投稿请同时将摘要发送至 <strong>editorial@unfinishedjournal.com</strong><br>
+          后续版本将接入真实数据库和邮件通知系统。
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GUIDELINES PAGE ===== -->
+<div id="page-guidelines" class="page">
+  <div class="guidelines-page">
+    <div class="guidelines-container">
+      <a href="#" class="back-link" onclick="navigateTo('home'); return false;">← 返回首页</a>
+      <h2>投稿指南</h2>
+      <p>我们对内容的核心要求：保持诚实。内容不必完整、不必优雅、不必有结论。但必须真实。</p>
+
+      <div class="gl-section">
+        <h3>一、未竟接收什么？</h3>
+        <ul>
+          <li>有明确研究方向但尚未完善的论文草稿</li>
+          <li>系统记录的负结果与失败实验报告（含完整数据和失败分析）</li>
+          <li>开放性问题及其已有尝试的系统综述</li>
+          <li>早期假说、跨学科猜想、思想碎片——哪怕只有一个段落</li>
+          <li>寻求跨领域合作的协作招募</li>
+          <li>研究备忘录：阶段性进展、路线调整记录、方法学反思</li>
+        </ul>
+      </div>
+
+      <div class="gl-section">
+        <h3>二、未竟不接收什么？</h3>
+        <ul>
+          <li>已在传统期刊正式发表且版权已完全转让的完整论文</li>
+          <li>纯观点宣示而无任何推理或证据支撑的空洞文字</li>
+          <li>明显的伪科学或已被充分证伪的命题（除非作为失败案例提交）</li>
+          <li>包含仇恨言论、歧视内容、或违反基本学术伦理的提交</li>
+          <li>AI 生成的内容未经人类作者实质性审阅和标注的提交</li>
+        </ul>
+      </div>
+
+      <div class="gl-section">
+        <h3>三、投稿类型说明</h3>
+        <ul>
+          <li><strong>未竟论文：</strong>有骨架但未完成的学术论文。可能缺实验、缺讨论、缺结论——但核心思路清晰。</li>
+          <li><strong>失败实验档案：</strong>完整记录一个不成功的实验。包括方法、数据、失败原因分析。负结果也是科学进步。</li>
+          <li><strong>开放问题：</strong>提出一个值得被研究的问题，并综述已有的尝试和已知的瓶颈。可作为社区悬赏。</li>
+          <li><strong>思想碎片：</strong>早期假说或跨学科灵感。不需要完整论证。可能只是一个有启发的类比或观察。</li>
+          <li><strong>协作招募：</strong>你有想法但缺少某个领域的能力？在这里寻找合作者。</li>
+          <li><strong>研究备忘录：</strong>研究过程中的阶段性记录——路线调整、方法学反思、意外的中间发现。</li>
+        </ul>
+      </div>
+
+      <div class="gl-section">
+        <h3>四、可见性模式</h3>
+        <ul>
+          <li><strong>公开展示：</strong>全文对所有访问者可见。适合已准备好接受社区评论的项目。</li>
+          <li><strong>半公开：</strong>仅展示标题、摘要和类型标签。全文仅对已注册的社区成员可见。适合仍在发育阶段的敏感项目。</li>
+          <li><strong>私密提交：</strong>全文仅编辑部可见。适合需要高度保护的早期构想。设 6 个月保护期，到期前可申请延长或转为公开。</li>
+        </ul>
+      </div>
+
+      <div class="gl-section">
+        <h3>五、IP 与署名</h3>
+        <ul>
+          <li>提交即生成不可篡改的时间戳——这是你在未竟上的思想优先权记录。</li>
+          <li>当前版本的时间戳基于平台服务器时钟，不构成区块链级别的去中心化确权。链上锚定功能在开发路线图中。</li>
+          <li>作者保留所有权利。未竟不声称对提交内容拥有任何知识产权。</li>
+          <li>协作分支（fork）的贡献记录独立于原项目，双方权益由贡献者图谱清晰标注。</li>
+        </ul>
+      </div>
+
+      <div class="gl-section">
+        <h3>六、审稿与社区评论</h3>
+        <ul>
+          <li><strong>48 小时初筛：</strong>编辑团队检查原创性、伦理标注和基本完整性。</li>
+          <li><strong>2–4 周公开评论期：</strong>社区成员可提交建设性评论——不是拒稿，而是帮助完善。</li>
+          <li><strong>编辑综述（可选）：</strong>对活跃项目，编辑团队整合社区意见，标注潜在价值和已知问题。</li>
+          <li><strong>持续开放：</strong>项目通过初筛后长期开放，作者可随时更新，评论持续累积。不设终审。</li>
+        </ul>
+      </div>
+
+      <div class="gl-section">
+        <h3>七、未来版本计划</h3>
+        <ul>
+          <li>链上时间戳锚定（将版本哈希写入公链）</li>
+          <li>DOI 注册与学术索引接入</li>
+          <li>版本树可视化与贡献者图谱</li>
+          <li>社区资助池与开放问题悬赏</li>
+          <li>LaTeX / Markdown 在线编辑器</li>
+          <li>与 arXiv、Zenodo、OSF 等平台的互操作</li>
+        </ul>
+        <div class="gl-notice">
+          未竟目前处于概念验证与社区建设阶段（v0.x）。以上计划可能随社区反馈和资源条件调整。我们承诺在引入任何涉及知识产权、经济激励或用户数据的重大变更前，进行充分的社区讨论和透明公示。
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SUCCESS STATE ===== -->
+<div id="page-submit-success" class="page">
+  <div class="success-page">
+    <div class="success-container">
+      <div class="gold-line" style="margin-bottom:24px;"></div>
+      <div class="success-id" id="success-submission-id">UJ-2026-0001</div>
+      <h2>提交成功</h2>
+      <p>你的未竟之作已生成时间戳并进入初筛队列。</p>
+      <dl class="success-detail">
+        <dt>Submission ID</dt>
+        <dd id="success-id-display">UJ-2026-0001</dd>
+        <dt>提交时间</dt>
+        <dd id="success-time">—</dd>
+        <dt>当前状态</dt>
+        <dd><span class="status-badge">Received</span></dd>
+        <dt>下一步</dt>
+        <dd>Editorial Screening — 我们将在 48 小时内完成初筛并通过邮件通知结果</dd>
+      </dl>
+      <div class="success-actions">
+        <a href="#" class="btn btn-primary" onclick="navigateTo('home'); return false;">返回首页</a>
+        <a class="btn btn-outline" id="mailto-btn" href="#" style="background:var(--gold);color:#fff;border-color:var(--gold);">发送正式投稿邮件</a>
+        <a href="#" class="btn btn-outline" onclick="navigateTo('my-submissions'); return false;">查看我的提交记录</a>
+        <a href="#" class="btn btn-outline" onclick="navigateTo('admin'); return false;">进入管理后台</a>
+        <button class="btn btn-outline" onclick="exportSubmissionsJSON()">导出本地投稿 JSON</button>
+      </div>
+      <div class="success-notice">
+        <strong>当前为网页原型，投稿数据仅保存在本地浏览器 localStorage 中</strong><br>
+        正式投稿请发送邮件至 <strong>editorial@unfinishedjournal.com</strong><br>
+        请使用上方「发送正式投稿邮件」按钮一键生成邮件，或手动发送摘要至此邮箱。<br>
+        当前阶段所有邮件统一由此邮箱处理。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 404 -->
+<section class="notfound-page page" id="page-404">
+  <div class="notfound-container">
+    <h1>404</h1>
+    <p>您寻找的页面尚未被写下，或者已经遗失在时间的缝隙里。<br>但这并不意味着它不存在——只是尚未抵达。</p>
+    <div class="notfound-search">
+      <input type="text" id="nfSearch" placeholder="在档案中搜索..." onkeydown="if(event.key==='Enter')nfSearchGo()">
+      <button class="btn" onclick="nfSearchGo()">搜索</button>
+    </div>
+    <div class="notfound-links">
+      <p style="margin-bottom:8px;color:var(--text-tertiary);font-size:0.9rem;">或许您想去：</p>
+      <a href="#" onclick="navigateTo('home');setTimeout(function(){document.getElementById('manifesto').scrollIntoView({behavior:'smooth'});},100);return false;">宣言</a>
+      <a href="#" onclick="navigateTo('browse');return false;">档案</a>
+      <a href="#" onclick="navigateTo('guidelines');return false;">投稿指南</a>
+      <a href="#" onclick="navigateTo('about');return false;">关于未竟</a>
+    </div>
+  </div>
+</section>
+
+<!-- 隐私政策 -->
+<section class="static-page page" id="page-privacy">
+  <div class="static-container">
+    <h2>隐私政策</h2>
+    <p class="static-meta">最后更新：2026 年 6 月 8 日 · 版本 0.1</p>
+    <h3>我们的承诺</h3>
+    <p>未竟（Unfinished Journal）尊重每一位研究者的隐私。本页说明我们如何处理您的信息。当前版本为前端原型，尚未接入后端服务器，您的数据存储在浏览器本地。</p>
+    <h3>我们收集的信息</h3>
+    <p>当前原型阶段，我们<strong>不收集</strong>任何个人信息。您在投稿表单中填写的内容（姓名、邮箱、研究摘要等）存储在您浏览器的 localStorage 中，仅用于前端演示。</p>
+    <ul>
+      <li><strong>本地存储：</strong>投稿数据仅在您的设备上保留，不会自动发送到任何服务器。</li>
+      <li><strong>分析工具：</strong>本页面保留了接入统计工具的占位（如 Google Analytics）。在正式启用前，我们不会收集任何访问数据。</li>
+    </ul>
+    <h3>信息使用方式</h3>
+    <p>在当前原型阶段，您的投稿信息仅用于：<br>· 前端页面展示（编辑部后台演示）<br>· 投稿流程的界面对话测试<br>未来正式接入了后端后，我们将更新本政策并通知所有用户。</p>
+    <h3>数据安全</h3>
+    <p>由于数据存储在您的设备上，其安全性取决于您的浏览器和操作系统。我们建议您在正式提交敏感研究材料前，确认平台的后端服务已启用。</p>
+    <h3>您的权利</h3>
+    <p>您可以随时清除浏览器的 localStorage 来删除全部投稿数据。未来接入后端后，将支持数据导出、修改和删除请求。</p>
+    <h3>政策更新</h3>
+    <p>本政策将随项目演进持续更新。重大变更将在首页公告。</p>
+    <h3>联系我们</h3>
+    <p>如对本政策有疑问，请通过<a href="#" onclick="navigateTo('contact'); return false;">联系我们</a>页面与我们沟通。</p>
+  </div>
+</section>
+
+<!-- 使用条款 -->
+<section class="static-page page" id="page-terms">
+  <div class="static-container">
+    <h2>使用条款</h2>
+    <p class="static-meta">最后更新：2026 年 6 月 8 日 · 版本 0.1</p>
+    <h3>概念验证声明</h3>
+    <p>未竟（Unfinished Journal）当前版本为概念验证与原型演示（Prototype）。本条款不构成具有法律约束力的协议，但描述了项目方向与用户期望之间的基本共识。</p>
+    <h3>投稿内容</h3>
+    <p>您通过投稿功能提交的内容，应满足以下要求：</p>
+    <ul>
+      <li>内容为您的原创研究或您有权提交的材料</li>
+      <li>不侵犯他人知识产权、隐私权或其他合法权益</li>
+      <li>不含恶意代码、诽谤内容或违法信息</li>
+      <li>不冒充他人或虚构研究履历</li>
+    </ul>
+    <p>您保留所提交内容的知识产权。将内容提交至本平台，即表示您授予未竟在平台范围内展示和处理该内容的权限。</p>
+    <h3>平台行为准则</h3>
+    <ul>
+      <li>我们保留拒绝或下架不符合投稿标准的内容的权利</li>
+      <li>我们不对平台暂时不可用或数据丢失承担责任（当前为原型阶段，请自行备份重要材料）</li>
+      <li>任何形式的滥用行为（刷稿、恶意攻击、数据抓取）将被禁止</li>
+    </ul>
+    <h3>免责声明</h3>
+    <p>未竟以"按现状"（as-is）提供。我们尽力维护平台的可靠性和学术诚信，但不保证无中断、无错误或适用于特定目的。</p>
+    <h3>条款变更</h3>
+    <p>本条款将随项目演进更新。继续使用平台即表示接受更新后的条款。重大变更将提前公告。</p>
+  </div>
+</section>
+
+<!-- 联系我们 -->
+<section class="static-page page" id="page-contact">
+  <div class="static-container">
+    <h2>联系我们</h2>
+    <p class="static-meta">我们很乐意听到您的声音</p>
+    <h3>统一联系邮箱</h3>
+    <p>当前阶段，所有邮件（一般咨询、投稿、技术问题、法律事务等）统一由此邮箱处理：<br><strong><a href="mailto:editorial@unfinishedjournal.com">editorial@unfinishedjournal.com</a></strong></p>
+    <p style="font-size:0.78rem;color:var(--text-muted);margin-top:8px;">待平台进入正式运营阶段后，将分设各职能邮箱。当前请统一使用以上地址，我们会在内部协调处理。</p>
+    <h3>社交媒体</h3>
+    <p>关注未竟的更新与讨论：<br>Twitter / X：@unfinished_jrnl<br>微信公众平台：未竟 Unfinished</p>
+  </div>
+</section>
+
+<!-- 关于未竟 -->
+<section class="static-page page" id="page-about">
+  <div class="static-container">
+    <h2>关于未竟</h2>
+    <p class="static-meta">一份献给未竟思想的开放刊物 · 概念验证阶段 v0.x</p>
+
+    <h3>我们是谁</h3>
+    <p>未竟（Unfinished Journal）是一份致力于收录未完成研究的开放存取刊物。我们出版的不是论文，而是<strong>值得被看见的问题</strong>——那些因实验失败、经费中断、过早被拒或因研究者转行而搁置的构想、假说、数据和阶段性发现。</p>
+    <p>我们相信，学术出版不应只讲述成功的故事。科学史上许多重大突破都始于"不完整"的记录：未发表的实验结果可能含有未被识别的信号，被拒稿的假说可能在新的技术条件下被验证，半途而废的项目可能孕育了另一个领域的种子。</p>
+
+    <h3>为什么存在</h3>
+    <p>传统学术出版体系存在结构性偏见：</p>
+    <ul>
+      <li><strong>阳性结果倾向：</strong>期刊偏好统计显著的结果，阴性结果和零假设被系统性忽视。</li>
+      <li><strong>叙事完整性要求：</strong>论文必须讲述一个"完整的故事"，迫使研究者修剪掉那些有趣的边界情况。</li>
+      <li><strong>时间与资源门槛：</strong>从数据收集到最终发表，传统路径需要数年时间——许多有价值的阶段性发现在这个过程中丢失。</li>
+    </ul>
+    <p>未竟试图为这些问题提供一个补充性解决方案：一个专门为"不完整"设计的发表空间。</p>
+
+    <h3>我们出版什么</h3>
+    <p>我们接受的内容形式不限于传统论文，包括：</p>
+    <ul>
+      <li><strong>未竟假说：</strong>有逻辑基础但尚未完整验证的科学假说。</li>
+      <li><strong>阴性/零结果：</strong>严谨但未达显著性的实验结果。</li>
+      <li><strong>失败实验报告：</strong>记录了意外现象或方法论教训的失败尝试。</li>
+      <li><strong>开放问题：</strong>社区共同认定的重要未解决问题，附悬赏或协作邀约。</li>
+      <li><strong>文献负空间：</strong>对现有文献中未被充分探索领域的系统梳理。</li>
+      <li><strong>方法片段：</strong>经过验证但未完整应用于某项研究的方法论技巧或工具。</li>
+    </ul>
+
+    <h3>运作方式</h3>
+    <p>当前未竟处于概念验证与社区建设阶段。我们采用以下原则：</p>
+    <ul>
+      <li><strong>开放获取：</strong>所有发表内容永久免费开放。</li>
+      <li><strong>版本化记录：</strong>每一项投稿获得唯一标识与时间戳，可在未来被引用。</li>
+      <li><strong>轻量级同行评议：</strong>聚焦于方法论的严谨性而非结果的叙事完整性。</li>
+      <li><strong>协作优先：</strong>鼓励跨学科、跨机构的开放协作，投稿可在发表后继续迭代。</li>
+    </ul>
+
+    <h3>当前状态</h3>
+    <p>平台当前为静态原型（v0.x），所有内容存储于浏览器本地。我们正在构建以下能力：</p>
+    <ul>
+      <li>真实投稿后端与数据库</li>
+      <li>数字对象标识符（DOI）注册</li>
+      <li>正式同行评议流程</li>
+      <li>版本管理与协作工具</li>
+      <li>社区资助与微资助机制</li>
+    </ul>
+    <p>在此期间，我们欢迎研究者通过邮件提交构想或加入社区讨论。</p>
+
+    <h3>联系与关注</h3>
+    <p>邮箱：<strong><a href="mailto:editorial@unfinishedjournal.com">editorial@unfinishedjournal.com</a></strong></p>
+    <p>Twitter / X：@unfinished_jrnl<br>微信公众平台：未竟 Unfinished</p>
+    <p style="margin-top: 32px;font-size:0.78rem;color:var(--text-muted);line-height:1.6;">
+      未竟是一个开放项目。本页面内容将随项目演进而持续更新。欢迎任何形式的反馈、批评与协作意向。
+    </p>
+  </div>
+</section>
+
+<!-- Admin -->
+<section class="admin-page page" id="page-admin">
+  <div class="admin-container">
+    <div style="background:#FFF3CD;border:1px solid #FFC107;padding:12px 20px;margin-bottom:20px;font-size:0.78rem;color:#856404;line-height:1.6;text-align:center;">
+      <strong>当前为本地原型管理后台。所有数据仅存储在浏览器 localStorage 中。不是正式安全后台。</strong>
+      <span style="display:block;margin-top:4px;">联系：editorial@unfinishedjournal.com</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+      <h2 style="margin:0;">编辑部后台</h2>
+      <div>
+        <button class="admin-refresh" onclick="if(confirm('确定要清空所有测试数据吗？此操作不可恢复。')){localStorage.removeItem('uj_submissions');localStorage.removeItem('uj_submissions_seeded');renderAdmin();alert('所有测试数据已清空。');}" style="background:#C44;color:#fff;border-color:#C44;">清空所有测试数据</button>
+        <button class="admin-refresh" onclick="handleLogout()" style="margin-left:8px;">退出后台</button>
+      </div>
+    </div>
+    <p>当前版本为前端原型——数据存储于浏览器本地</p>
+    <div class="admin-toolbar">
+      <div class="admin-search">
+        <input type="text" id="adminSearch" placeholder="搜索标题 / 作者 / 编号..." oninput="renderAdmin()">
+      </div>
+      <div class="admin-filters">
+        <select id="adminStatusFilter" onchange="renderAdmin()">
+          <option value="">全部状态</option>
+          <option value="received">已接收</option>
+          <option value="screening">初筛中</option>
+          <option value="revision">待修改</option>
+          <option value="accepted">已接受</option>
+          <option value="collab">协作中</option>
+          <option value="protected">受保护</option>
+          <option value="rejected">已拒绝</option>
+        </select>
+        <button class="admin-refresh" onclick="renderAdmin()">刷新数据</button>
+        <button class="admin-refresh" onclick="exportSubmissionsJSON()" style="margin-left:8px;">导出 JSON</button>
+      </div>
+    </div>
+    <div class="admin-stats" id="adminStats"></div>
+    <div class="admin-table-wrap" id="adminTableWrap"></div>
+    <div class="admin-pagination" id="adminPagination"></div>
+  </div>
+</section>
+
+<!-- Login / Admin Prototype Entry -->
+<section class="auth-page page" id="page-login">
+  <div class="auth-card">
+    <h2>管理员原型入口</h2>
+    <p style="background:#FFF3CD;padding:12px 16px;font-size:0.78rem;color:#856404;text-align:left;margin-bottom:20px;line-height:1.6;">
+      <strong>当前为本地原型管理后台，不是正式账户系统。所有数据仅存储在浏览器本地。</strong>
+    </p>
+    <form class="auth-form" id="loginForm" onsubmit="handleLogin(event)" novalidate>
+      <div class="form-group">
+        <label>管理密码</label>
+        <input type="password" id="login-password" placeholder="请输入管理密码" required autocomplete="off">
+        <span class="form-error" id="login-password-error"></span>
+      </div>
+      <button type="submit" class="btn">进入管理后台</button>
+    </form>
+    <div id="login-already-auth" style="display:none;text-align:center;">
+      <p style="color:var(--gold);margin-bottom:16px;">已认证</p>
+      <button class="btn btn-primary" onclick="navigateTo('admin')">进入后台</button>
+      <button class="btn btn-outline" style="margin-top:8px;" onclick="handleLogout()">退出后台</button>
+    </div>
+    <p style="margin-top:20px;font-size:0.7rem;color:var(--text-muted);text-align:center;">
+      当前为本地原型，不是正式安全后台。正式版本将接入真实认证系统。<br>
+      联系：editorial@unfinishedjournal.com
+    </p>
+  </div>
+</section>
+
+<!-- Register / Join Unfinished -->
+<section class="auth-page page" id="page-register">
+  <div class="auth-card" style="max-width:600px;">
+    <h2>加入未竟计划</h2>
+    <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:32px;">未竟目前处于早期阶段，欢迎研究者、编辑、开发者加入我们。</p>
+
+    <div style="background:var(--gold-pale);padding:20px 24px;margin-bottom:28px;text-align:left;line-height:1.8;font-size:0.82rem;">
+      <p style="margin-bottom:12px;"><strong>未竟的使命：</strong>为未完成思想、失败实验、早期构想和开放问题提供记录、保护、协作与延续的学术平台。我们相信每一个思想碎片都有其价值——不完整的论文、失败的实验、天马行空的假说——它们不应该被遗忘在抽屉里。</p>
+      <p>当前阶段我们正在建设核心社区和平台基础设施。无论你是研究者、编辑、开发者还是对学术创新感兴趣的朋友，都欢迎加入。</p>
+    </div>
+
+    <form class="auth-form" id="registerForm" onsubmit="handleJoinSubmit(event)" novalidate>
+      <div class="form-group">
+        <label>姓名</label>
+        <input type="text" id="reg-name" placeholder="你的真实姓名或笔名" required>
+        <span class="form-error" id="reg-name-error"></span>
+      </div>
+      <div class="form-group">
+        <label>邮箱</label>
+        <input type="email" id="reg-email" placeholder="researcher@example.com" required>
+        <span class="form-error" id="reg-email-error"></span>
+      </div>
+      <div class="form-group">
+        <label>感兴趣的方向</label>
+        <select id="reg-interest" required>
+          <option value="">请选择</option>
+          <option value="author">投稿作者</option>
+          <option value="reviewer">同行评议</option>
+          <option value="editor">编辑志愿者</option>
+          <option value="developer">技术开发</option>
+          <option value="other">其他</option>
+        </select>
+        <span class="form-error" id="reg-interest-error"></span>
+      </div>
+      <button type="submit" class="btn">提交意向</button>
+    </form>
+
+    <div id="join-success-msg" style="display:none;text-align:center;padding:20px;background:var(--gold-pale);margin-top:20px;">
+      <p style="color:var(--gold);font-size:1rem;">感谢！我们会通过邮件与您联系。</p>
+      <p style="font-size:0.75rem;color:var(--text-secondary);margin-top:8px;">请同时发送邮件到 <strong>editorial@unfinishedjournal.com</strong> 以确保我们能及时收到您的意向。</p>
+    </div>
+
+    <p style="margin-top:24px;font-size:0.7rem;color:var(--text-muted);text-align:center;line-height:1.6;">
+      当前为静态官网原型，表单提交仅作示意，不会实际发送到服务器。<br>
+      请直接发送邮件到 <strong>editorial@unfinishedjournal.com</strong> 与我们联系。<br>
+      当前阶段所有邮件统一由此邮箱处理。
+    </p>
+  </div>
+</section>
+
+<!-- Browse -->
+<section class="browse-page page" id="page-browse">
+  <div class="browse-container">
+    <h2>未竟档案</h2>
+    <p>浏览已公开的未竟研究</p>
+    <div class="browse-filter">
+      <input type="text" id="browseSearch" placeholder="搜索标题、作者..." oninput="renderBrowse()">
+      <select id="browseTypeFilter" onchange="renderBrowse()">
+        <option value="">全部类型</option>
+        <option value="article">研究论文</option>
+        <option value="note">研究笔记</option>
+        <option value="data">数据集</option>
+        <option value="proto">原型/实验</option>
+        <option value="review">文献综述</option>
+        <option value="negative">负结果报告</option>
+        <option value="other">其他</option>
+      </select>
+    </div>
+    <div class="browse-grid" id="browseGrid"></div>
+    <div class="admin-empty" id="browseEmpty" style="display:none">
+      <p>暂无可公开浏览的投稿</p>
+      <p class="empty-hint">提交第一篇公开研究后，它将在此处展示。</p>
+    </div>
+  </div>
+</section>
+
+<!-- My Submissions -->
+<section class="my-submissions-page page" id="page-my-submissions">
+  <div class="my-submissions-container">
+    <h2>我的提交记录</h2>
+    <p>当前为本地原型查询——数据仅来自当前浏览器的 localStorage</p>
+    <div class="my-submissions-form">
+      <div class="form-group">
+        <label>投稿时填写的邮箱</label>
+        <input type="email" id="my-submissions-email" placeholder="researcher@example.com">
+      </div>
+      <div class="form-group">
+        <label>Submission ID（可选）</label>
+        <input type="text" id="my-submissions-id" placeholder="UJ-2026-0001">
+      </div>
+      <button class="btn" onclick="searchMySubmissions()">查询我的投稿</button>
+    </div>
+    <div class="my-submissions-results" id="mySubmissionsResults">
+      <div class="admin-empty">
+        <p>输入邮箱和/或 Submission ID 查询您的投稿记录</p>
+        <p class="empty-hint">当前为本地原型查询，不会连接真实服务器。</p>
+      </div>
+    </div>
+    <div class="my-submissions-notice">
+      <strong>本地原型说明：</strong>所有投稿数据仅存储在您当前浏览器的 localStorage 中。清除浏览器数据、更换设备或浏览器将导致数据丢失。请定期使用管理后台的"导出 JSON"功能备份。
+    </div>
+  </div>
+</section>
+
+<!-- Submission Detail (Public View) -->
+<section class="submission-page page" id="page-submission">
+  <div class="submission-container" id="submissionContent"></div>
+</section>
+
+<!-- Admin Submission Detail -->
+<section class="admin-submission-page page" id="page-admin-submission">
+  <div class="admin-submission-container" id="adminSubmissionContent"></div>
+</section>
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-spinner"></div>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h5><img src="logo2.png" alt="未竟" style="height:24px;vertical-align:middle;margin-right:8px;">未竟 · UNFINISHED JOURNAL</h5>
+      <p>一个为未完成思想、失败实验、早期构想和开放问题提供记录、保护、协作与延续的学术与创新平台。</p>
+    </div>
+    <div class="footer-col">
+      <h5>平台</h5>
+      <a href="#about">关于未竟</a>
+      <a href="#manifesto">宣言</a>
+      <a href="#columns">栏目</a>
+      <a href="#process">投稿流程</a>
+    </div>
+    <div class="footer-col">
+      <h5>资源</h5>
+      <a href="#projects">开放问题</a>
+      <a href="#ip">IP 与确权</a>
+      <a href="#" onclick="navigateTo('contact'); return false;">社区</a>
+      <a href="#faq">常见问题</a>
+    </div>
+    <div class="footer-col">
+      <h5>联系</h5>
+      <a href="#" onclick="navigateTo('contact'); return false;">联系我们</a>
+      <a href="mailto:editorial@unfinishedjournal.com">editorial@unfinishedjournal.com</a>
+      <a href="#">GitHub</a>
+      <a href="#">学术合作</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 未竟 Unfinished Journal. 所有思想属于其创作者。</span>
+    <span><a href="#" onclick="navigateTo('privacy'); return false;">隐私政策</a> · <a href="#" onclick="navigateTo('terms'); return false;">使用条款</a></span>
+  </div>
+</footer>
+
+
+
+<script>
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Mobile nav toggle
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('navToggle').classList.toggle('open');
+}
+function closeNav() {
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('navToggle').classList.remove('open');
+}
+
+// Theme toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  localStorage.setItem('uj-theme', isDark ? 'light' : 'dark');
+}
+(function initTheme() {
+  const saved = localStorage.getItem('uj-theme');
+  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+})();
+
+// ===== i18n: 中/英双语 =====
+const I18N = {
+  zh: {},
+  en: {
+    '宣言': 'Manifesto',
+    '档案': 'Archive',
+    '投稿指南': 'Guide',
+    '关于未竟': 'About',
+    '提交未竟之作': 'Submit',
+    '原型后台': 'Admin',
+    '加入未竟': 'Join',
+    '献给所有尚未完成，但不应被遗忘的思想。': 'For all unfinished thoughts that deserve to be remembered.',
+    '思想不必完成才有价值。没有失败，只有实验。': 'Ideas need not be complete to have value. No failures, only experiments.',
+    '了解我们的宣言': 'Read Our Manifesto',
+    '浏览档案': 'Browse Archive',
+    '为什么「未竟」？': 'Why Unfinished?',
+    '核心机制': 'Core Mechanisms',
+    '投稿流程': 'Submission Process',
+    '评审机制': 'Review System',
+    '精选项目': 'Featured Projects',
+    '常见问题': 'FAQ',
+    '© 2026 未竟 · 保留所有权利': '© 2026 Unfinished Journal · All rights reserved',
+    '联系': 'Contact',
+    '隐私政策': 'Privacy',
+    '使用条款': 'Terms',
+    '我们的宣言': 'Our Manifesto',
+    '页面未竟': 'Unfinished Page',
+    '您寻找的页面不存在，但它也许正在被构建。': 'This page does not exist yet — perhaps it is still being built.',
+    '搜索档案': 'Search Archive',
+    '快速链接': 'Quick Links',
+    '回到首页': 'Back to Home',
+    '返回首页': 'Back to Home',
+    '所有档案': 'All Archives',
+    '搜索': 'Search',
+    '加载中...': 'Loading...',
+    '了解更多': 'Learn More',
+    '未竟宣言': 'Unfinished Manifesto',
+    '阅读宣言': 'Read Manifesto',
+    '探索开放问题': 'Explore Open Questions'
+  }
+};
+
+let currentLang = 'zh';
+const L = (text) => (currentLang === 'en' && I18N.en[text]) ? I18N.en[text] : text;
+
+function toggleLang() {
+  currentLang = currentLang === 'zh' ? 'en' : 'zh';
+  localStorage.setItem('uj-lang', currentLang);
+  translatePage();
+}
+
+function translatePage() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (I18N.en[key]) el.textContent = currentLang === 'en' ? I18N.en[key] : key;
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (I18N.en[key]) el.placeholder = currentLang === 'en' ? I18N.en[key] : key;
+  });
+  document.getElementById('langToggle').textContent = currentLang === 'zh' ? 'EN' : '中文';
+}
+
+(function initLang() {
+  currentLang = localStorage.getItem('uj-lang') || 'zh';
+  document.getElementById('langToggle').textContent = currentLang === 'zh' ? 'EN' : '中文';
+})();
+
+// 404 search - redirects to browse with search query
+function nfSearchGo() {
+  const q = document.getElementById('nfSearch').value.trim();
+  if (!q) return;
+  navigateTo('browse');
+  setTimeout(function() {
+    const si = document.getElementById('browseSearch');
+    if (si) { si.value = q; si.dispatchEvent(new Event('input')); }
+  }, 250);
+}
+
+// FAQ toggle
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  item.classList.toggle('open');
+}
+
+
+
+/* ===== Page Routing ===== */
+function navigateTo(page) {
+  switchPage(page);
+}
+
+function switchPage(page) {
+  // Map 'join' to 'register' page
+  if (page === 'join') page = 'register';
+
+  // Route protection: admin requires prototype auth
+  if (page === 'admin' && !authStore.isLoggedIn()) {
+    sessionStorage.setItem('uj_redirect_after_login', 'admin');
+    navigateTo('login');
+    return;
+  }
+  
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  
+  // Handle special page types
+  let pageId = page;
+  let detailId = null;
+  
+  if (page.startsWith('submission/')) {
+    pageId = 'submission';
+    detailId = page.replace('submission/', '');
+  } else if (page.startsWith('admin-submission/')) {
+    pageId = 'admin-submission';
+    detailId = page.replace('admin-submission/', '');
+  }
+  
+  const target = document.getElementById('page-' + pageId);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo(0, 0);
+    document.getElementById('loadingOverlay').classList.remove('active');
+    
+    // Initialize page-specific content
+    if (pageId === 'admin') renderAdmin();
+    if (pageId === 'browse') renderBrowse();
+    if (pageId === 'submission' && detailId) renderSubmission(detailId);
+    if (pageId === 'admin-submission' && detailId) renderAdminSubmission(detailId);
+  } else {
+    console.error('页面未找到:', page, 'pageId:', pageId, 'target: page-' + pageId);
+    const fallback = document.getElementById('page-404');
+    if (fallback) {
+      fallback.classList.add('active');
+      window.scrollTo(0, 0);
+      document.getElementById('loadingOverlay').classList.remove('active');
+    }
+  }
+  // Use replaceState to avoid triggering hashchange loop
+  history.replaceState(null, '', '#' + page);
+  if (typeof closeNav === 'function') closeNav();
+  // Apply i18n after page switch
+  if (currentLang === 'en') translatePage();
+}
+
+// Listen for hash changes
+window.addEventListener('hashchange', function() {
+  const hash = window.location.hash.replace('#', '');
+  const standalonePages = ['about','submit','submit-success','guidelines','success','404','privacy','terms','contact','admin','login','register','join','browse','my-submissions','admin-submission'];
+  if (standalonePages.includes(hash)) {
+    navigateTo(hash);
+  } else if (hash.startsWith('submission/') || hash.startsWith('admin-submission/')) {
+    navigateTo(hash);
+  } else {
+    navigateTo('home');
+    // navigateTo calls switchPage which does history.replaceState('#home'), overwriting anchor
+    // Restore original hash for cross-page anchor navigation
+    if (hash) {
+      history.replaceState(null, '', '#' + hash);
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) { el.scrollIntoView({ behavior: 'smooth' }); }
+      }, 150);
+    }
+  }
+});
+
+/* ===== Admin Panel ===== */
+let adminPage = 1;
+const ADMIN_PAGE_SIZE = 10;
+
+function renderAdmin() {
+  const statsEl = document.getElementById('adminStats');
+  const tableWrap = document.getElementById('adminTableWrap');
+  const paginationEl = document.getElementById('adminPagination');
+  if (!statsEl || !tableWrap) return;
+
+  const subs = mockSubmissions.all();
+  
+  // Filter by status
+  const statusFilter = document.getElementById('adminStatusFilter');
+  const filterStatus = statusFilter ? statusFilter.value : '';
+  let filtered = subs;
+  if (filterStatus) {
+    filtered = filtered.filter(s => s.status === filterStatus);
+  }
+  
+  // Search
+  const searchInput = document.getElementById('adminSearch');
+  const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+  if (query) {
+    filtered = filtered.filter(s => {
+      return (s.title || '').toLowerCase().includes(query) ||
+             (s.author || s.name || '').toLowerCase().includes(query) ||
+             (s.submission_id || '').toLowerCase().includes(query) ||
+             (s.affiliation || '').toLowerCase().includes(query);
+    });
+  }
+  
+  const total = filtered.length;
+  const totalPages = Math.ceil(total / ADMIN_PAGE_SIZE) || 1;
+  if (adminPage > totalPages) adminPage = totalPages;
+  const start = (adminPage - 1) * ADMIN_PAGE_SIZE;
+  const pageSubs = filtered.slice().reverse().slice(start, start + ADMIN_PAGE_SIZE);
+
+  // Stats (based on all submissions, not filtered)
+  const allSubs = subs;
+  const allTotal = allSubs.length;
+  const counts = { received: 0, screening: 0, revision: 0, accepted: 0, collab: 0, protected: 0, rejected: 0 };
+  allSubs.forEach(s => {
+    const st = s.status || 'received';
+    if (counts[st] !== undefined) counts[st]++;
+  });
+
+  statsEl.innerHTML = `
+    <div class="admin-stat"><span class="stat-num">${allTotal}</span><span class="stat-label">投稿总数</span></div>
+    <div class="admin-stat"><span class="stat-num">${counts.screening}</span><span class="stat-label">待初筛</span></div>
+    <div class="admin-stat"><span class="stat-num">${counts.collab}</span><span class="stat-label">协作需求</span></div>
+    <div class="admin-stat"><span class="stat-num">${counts.protected}</span><span class="stat-label">半公开/私密</span></div>
+    <div class="admin-stat"><span class="stat-num">${counts.accepted}</span><span class="stat-label">已接受</span></div>
+  `;
+
+  if (total === 0) {
+    tableWrap.innerHTML = '<div class="admin-empty"><p>暂无匹配投稿</p><p class="empty-hint">尝试修改搜索条件或状态筛选。</p></div>';
+    if (paginationEl) paginationEl.innerHTML = '';
+    return;
+  }
+
+  let rows = '';
+  pageSubs.forEach(s => {
+    const title = s.title || '（无标题）';
+    const author = s.name || s.author || '匿名';
+    const date = s.created_at ? new Date(s.created_at).toLocaleDateString('zh-CN') : '-';
+    const status = s.status || 'received';
+    const badgeCls = statusCSS[status] || 'badge-received';
+    const label = statusNames[status] || '已接收';
+    rows += `<tr>
+      <td>${s.submission_id || '-'}</td>
+      <td>${title.substring(0,60)}${title.length>60?'…':''}</td>
+      <td>${author}</td>
+      <td>${date}</td>
+      <td><span class="badge ${badgeCls}">${label}</span></td>
+      <td>
+        <div class="admin-actions">
+          <button onclick="navigateTo('admin-submission/' + '${s.submission_id}');">查看详情</button>
+          <button onclick="toggleStatusMenu(event, '${s.submission_id}')">状态 ▾</button>
+          <button onclick="simulateNotify('${s.submission_id}')">通知</button>
+        </div>
+      </td>
+    </tr>`;
+  });
+
+  tableWrap.innerHTML = `
+    <table class="admin-table">
+      <thead><tr><th>编号</th><th>标题</th><th>作者</th><th>日期</th><th>状态</th><th>操作</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+
+  // Pagination
+  if (paginationEl) {
+    let pagHTML = '';
+    if (totalPages > 1) {
+      pagHTML += '<button ' + (adminPage <= 1 ? 'disabled' : 'onclick="adminGoToPage(' + (adminPage-1) + ')"') + '>←</button>';
+      for (let p = 1; p <= totalPages; p++) {
+        if (p === adminPage) {
+          pagHTML += '<button class="active">' + p + '</button>';
+        } else if (Math.abs(p - adminPage) <= 2 || p === 1 || p === totalPages) {
+          pagHTML += '<button onclick="adminGoToPage(' + p + ')">' + p + '</button>';
+        } else if (Math.abs(p - adminPage) === 3) {
+          pagHTML += '<span class="page-info">…</span>';
+        }
+      }
+      pagHTML += '<button ' + (adminPage >= totalPages ? 'disabled' : 'onclick="adminGoToPage(' + (adminPage+1) + ')"') + '>→</button>';
+      pagHTML += '<span class="page-info">共 ' + total + ' 条</span>';
+    }
+    paginationEl.innerHTML = pagHTML;
+  }
+}
+
+function adminGoToPage(p) {
+  adminPage = p;
+  renderAdmin();
+  document.querySelector('.admin-page').scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ===== Export Submissions JSON ===== */
+function exportSubmissionsJSON() {
+  const subs = mockSubmissions.all();
+  if (subs.length === 0) {
+    alert('暂无投稿数据可导出。');
+    return;
+  }
+  const exportData = { exported_at: new Date().toISOString(), total: subs.length, submissions: subs };
+  const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const ts = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+  a.href = url;
+  a.download = 'uj_submissions_export_' + ts + '.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/* ===== Mock Submission Database ===== */
+const mockSubmissions = (function() {
+  function load() { return JSON.parse(localStorage.getItem('uj_submissions') || '[]'); }
+  return {
+    add: function(entry) {
+      const data = load();
+      // ID generation: scan existing IDs to find next number (avoids collision after deletes)
+      const maxId = data.reduce((max, s) => {
+        const m = (s.submission_id || '').match(/UJ-2026-(\d+)/);
+        return m ? Math.max(max, parseInt(m[1])) : max;
+      }, 0);
+      entry.submission_id = 'UJ-2026-' + String(maxId + 1).padStart(4, '0');
+      entry.created_at = new Date().toISOString();
+      data.push(entry);
+      localStorage.setItem('uj_submissions', JSON.stringify(data));
+      return entry;
+    },
+    get: function(id) {
+      return load().find(function(s) { return s.submission_id === id; });
+    },
+    count: function() { return load().length; },
+    /* all() re-reads from localStorage each call — critical for post-changeStatus freshness */
+    all: function() { return load(); },
+    delete: function(id) {
+      const data = load();
+      const idx = data.findIndex(function(s) { return s.submission_id === id; });
+      if (idx === -1) return false;
+      data.splice(idx, 1);
+      localStorage.setItem('uj_submissions', JSON.stringify(data));
+      return true;
+    }
+  };
+})();
+
+/* ===== File Upload Label ===== */
+function updateFileLabel(input) {
+  const label = document.getElementById('file-label');
+  if (input.files.length === 0) {
+    label.textContent = '尚未选择文件';
+  } else {
+    label.textContent = '已选择 ' + input.files.length + ' 个文件。请将文件发送至 editorial@unfinishedjournal.com';
+  }
+}
+
+// ===== Draft Auto-Save =====
+(function initDraftAutoSave() {
+  const formIds = ['sf-name','sf-email','sf-affiliation','sf-title','sf-type','sf-stage','sf-abstract','sf-visibility','sf-collab','sf-funding'];
+  let saveTimer;
+  function saveDraft() {
+    const draft = {};
+    formIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) draft[id] = el.value || '';
+    });
+    if (Object.values(draft).some(v => v)) {
+      localStorage.setItem('uj-draft', JSON.stringify(draft));
+    }
+  }
+  function restoreDraft() {
+    const raw = localStorage.getItem('uj-draft');
+    if (!raw) return;
+    try {
+      const draft = JSON.parse(raw);
+      formIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && draft[id]) el.value = draft[id];
+      });
+    } catch(e) {}
+  }
+  formIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', () => { clearTimeout(saveTimer); saveTimer = setTimeout(saveDraft, 800); });
+      el.addEventListener('change', saveDraft);
+    }
+  });
+  const origSwitch = switchPage;
+  window.switchPage = function(page) {
+    origSwitch(page);
+    if (page === 'submit') setTimeout(restoreDraft, 100);
+  };
+  document.getElementById('submitForm')?.addEventListener('submit', function() {
+    setTimeout(() => {
+      if (document.getElementById('page-submit-success')) localStorage.removeItem('uj-draft');
+    }, 500);
+  });
+})();
+
+/* ===== Full Submission Form Handler ===== */
+function handleFullSubmit(event) {
+  event.preventDefault();
+
+  // Prevent duplicate submission
+  const submitBtn = event.target.querySelector('.submit-btn');
+  if (submitBtn.disabled) return;
+  submitBtn.disabled = true;
+  submitBtn.textContent = '提交中...';
+  setTimeout(() => { submitBtn.disabled = false; submitBtn.textContent = '提交并生成时间戳'; }, 3000);
+
+  let hasError = false;
+
+  // Clear all errors
+  document.querySelectorAll('#submitForm .form-error').forEach(e => e.classList.remove('visible'));
+  document.querySelectorAll('#submitForm input.error, #submitForm select.error, #submitForm textarea.error').forEach(e => e.classList.remove('error'));
+  document.getElementById('check-error').classList.remove('visible');
+
+  function showFormError(fieldId, msg) {
+    const field = document.getElementById(fieldId);
+    field.classList.add('error');
+    const errEl = field.parentElement.querySelector('.form-error');
+    if (errEl) { errEl.textContent = msg; errEl.classList.add('visible'); }
+    hasError = true;
+  }
+
+  // Required fields
+  const name = document.getElementById('sf-name');
+  const email = document.getElementById('sf-email');
+  const title = document.getElementById('sf-title');
+  const type = document.getElementById('sf-type');
+  const stage = document.getElementById('sf-stage');
+  const abstract = document.getElementById('sf-abstract');
+  const visibility = document.getElementById('sf-visibility');
+
+  if (!name.value.trim()) showFormError('sf-name', '请输入姓名');
+  if (!email.value.trim()) showFormError('sf-email', '请输入邮箱');
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) showFormError('sf-email', '邮箱格式不正确');
+  if (!title.value.trim()) showFormError('sf-title', '请输入作品标题');
+  if (!type.value) showFormError('sf-type', '请选择投稿类型');
+  if (!stage.value) showFormError('sf-stage', '请选择当前阶段');
+  if (!abstract.value.trim()) showFormError('sf-abstract', '请输入摘要');
+  else if (abstract.value.trim().length < 100) showFormError('sf-abstract', '摘要不能少于 100 字（当前 ' + abstract.value.trim().length + ' 字）');
+  else if (abstract.value.trim().length > 500) showFormError('sf-abstract', '摘要不能超过 500 字（当前 ' + abstract.value.trim().length + ' 字）');
+  if (!visibility.value) showFormError('sf-visibility', '请选择可见性');
+
+  // Checkboxes
+  const cb1 = document.getElementById('sf-original');
+  const cb2 = document.getElementById('sf-patent');
+  const cb3 = document.getElementById('sf-record');
+  if (!cb1.checked || !cb2.checked || !cb3.checked) {
+    document.getElementById('check-error').classList.add('visible');
+    hasError = true;
+  }
+
+  if (hasError) return;
+
+  // Save to mock database
+  const entry = mockSubmissions.add({
+    author: name.value.trim(),
+    email: email.value.trim(),
+    affiliation: document.getElementById('sf-affiliation').value.trim(),
+    title: title.value.trim(),
+    type: type.value,
+    stage: stage.value,
+    abstract: abstract.value.trim(),
+    visibility: visibility.value,
+    collab: document.getElementById('sf-collab').value,
+    funding: document.getElementById('sf-funding').value,
+    status: 'received',
+    next_step: 'Editorial Screening'
+  });
+
+  // Populate success page
+  document.getElementById('success-submission-id').textContent = entry.submission_id;
+  document.getElementById('success-id-display').textContent = entry.submission_id;
+  document.getElementById('success-time').textContent = new Date(entry.created_at).toLocaleString('zh-CN', { hour12: false });
+
+  // Set up mailto link
+  var mailtoBtn = document.getElementById('mailto-btn');
+  if (mailtoBtn) {
+    var subject = encodeURIComponent('未竟投稿 ' + entry.submission_id);
+    var body = encodeURIComponent('投稿编号：' + entry.submission_id + '\n标题：' + (entry.title || '') + '\n摘要：' + (entry.abstract || '') + '\n\n---\n此邮件由未竟静态官网原型生成。');
+    mailtoBtn.href = 'mailto:editorial@unfinishedjournal.com?subject=' + subject + '&body=' + body;
+  }
+
+  // Show success page
+  navigateTo('submit-success');
+}
+
+/* ===== Abstract Character Counter ===== */
+document.addEventListener('DOMContentLoaded', function() {
+  const abstractField = document.getElementById('sf-abstract');
+  if (abstractField) {
+    abstractField.addEventListener('input', function() {
+      const count = this.value.length;
+      const counter = document.getElementById('abstract-count');
+      counter.textContent = count + ' / 500 字';
+      if (count > 500) counter.style.color = '#C44';
+      else if (count >= 100) counter.style.color = 'var(--text-muted)';
+      else counter.style.color = 'var(--text-muted)';
+    });
+  }
+});
+
+/* ===== Auth System (Admin Prototype) ===== */
+const authStore = (function() {
+  return {
+    isLoggedIn: function() { return localStorage.getItem('uj_admin_authenticated') === 'true'; },
+    getUser: function() { return { name: '管理员' }; },
+    login: function() { localStorage.setItem('uj_admin_authenticated', 'true'); updateAuthUI(); },
+    logout: function() { localStorage.removeItem('uj_admin_authenticated'); updateAuthUI(); },
+    register: function() {}
+  };
+})();
+
+function updateAuthUI() {
+  const authEl = document.getElementById('navAuth');
+  const userEl = document.getElementById('navUser');
+  const userNameEl = document.getElementById('navUserName');
+  const alreadyAuth = document.getElementById('login-already-auth');
+  const loginFormEl = document.getElementById('loginForm');
+  if (authStore.isLoggedIn()) {
+    if (authEl) authEl.style.display = 'none';
+    if (userEl) { userEl.style.display = 'flex'; }
+    if (userNameEl) userNameEl.textContent = '管理员';
+    if (alreadyAuth) { alreadyAuth.style.display = 'block'; }
+    if (loginFormEl) { loginFormEl.style.display = 'none'; }
+  } else {
+    if (authEl) authEl.style.display = 'flex';
+    if (userEl) userEl.style.display = 'none';
+    if (alreadyAuth) { alreadyAuth.style.display = 'none'; }
+    if (loginFormEl) { loginFormEl.style.display = 'block'; }
+  }
+}
+
+function handleLogin(e) {
+  e.preventDefault();
+  const password = document.getElementById('login-password');
+  document.querySelectorAll('#loginForm .form-error').forEach(el => el.classList.remove('visible'));
+  if (!password || password.value.trim().length < 1) {
+    document.getElementById('login-password-error').textContent = '请输入管理密码';
+    document.getElementById('login-password-error').classList.add('visible');
+    return;
+  }
+  if (password.value.trim() !== 'UNFINISHED-ADMIN-2026') {
+    document.getElementById('login-password-error').textContent = '密码错误，请重试';
+    document.getElementById('login-password-error').classList.add('visible');
+    return;
+  }
+  authStore.login();
+  const redirect = sessionStorage.getItem('uj_redirect_after_login');
+  sessionStorage.removeItem('uj_redirect_after_login');
+  updateAuthUI();
+  navigateTo(redirect || 'admin');
+}
+
+function handleJoinSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('reg-name');
+  const email = document.getElementById('reg-email');
+  const interest = document.getElementById('reg-interest');
+  let ok = true;
+  document.querySelectorAll('#registerForm .form-error').forEach(el => el.classList.remove('visible'));
+  if (!name || !name.value.trim()) {
+    var err = document.getElementById('reg-name-error');
+    if (err) { err.textContent = '请输入姓名'; err.classList.add('visible'); }
+    ok = false;
+  }
+  if (!email || !email.value.trim() || !email.value.includes('@')) {
+    var err = document.getElementById('reg-email-error');
+    if (err) { err.textContent = '请输入有效的邮箱'; err.classList.add('visible'); }
+    ok = false;
+  }
+  if (!interest || !interest.value) {
+    var err = document.getElementById('reg-interest-error');
+    if (err) { err.textContent = '请选择感兴趣的方向'; err.classList.add('visible'); }
+    ok = false;
+  }
+  if (!ok) return;
+  // Show success message (pure frontend, no actual submission)
+  document.getElementById('registerForm').style.display = 'none';
+  document.getElementById('join-success-msg').style.display = 'block';
+}
+
+function handleRegister(e) {
+  // Legacy stub - replaced by handleJoinSubmit
+  e.preventDefault();
+  handleJoinSubmit(e);
+}
+
+function handleLogout() {
+  authStore.logout();
+  updateAuthUI();
+  navigateTo('home');
+}
+
+/* ===== Admin Status Transitions ===== */
+const statusFlow = {
+  'received': ['screening'],
+  'screening': ['accepted', 'revision', 'rejected'],
+  'revision': ['screening', 'rejected'],
+  'accepted': ['collab', 'protected'],
+  'collab': ['accepted'],
+  'protected': ['accepted'],
+  'rejected': ['screening']
+};
+const statusNames = { received: '已接收', screening: '初筛中', revision: '待修改', accepted: '已接受', collab: '协作中', protected: '受保护', rejected: '已拒绝' };
+const statusCSS = { received: 'badge-received', screening: 'badge-screening', revision: 'badge-revision', accepted: 'badge-accepted', collab: 'badge-collab', protected: 'badge-protected', rejected: 'badge-rejected' };
+
+function toggleStatusMenu(e, submissionId) {
+  e.stopPropagation();
+  // Remove any existing menu
+  const existing = document.querySelector('.status-menu');
+  if (existing) { existing.remove(); if (existing.dataset.sid === submissionId) return; }
+
+  const subs = mockSubmissions.all();
+  const s = subs.find(x => x.submission_id === submissionId);
+  if (!s) return;
+
+  const nextStatuses = statusFlow[s.status] || [];
+  if (nextStatuses.length === 0) { alert('当前状态无法变更'); return; }
+
+  const menu = document.createElement('div');
+  menu.className = 'status-menu';
+  menu.dataset.sid = submissionId;
+  nextStatuses.forEach(ns => {
+    const btn = document.createElement('button');
+    btn.textContent = '→ ' + (statusNames[ns] || ns);
+    if (ns === 'rejected') btn.classList.add('danger');
+    btn.onclick = function(ev) { ev.stopPropagation(); changeStatus(submissionId, ns); menu.remove(); };
+    menu.appendChild(btn);
+  });
+  e.target.parentElement.appendChild(menu);
+  // Click outside to close
+  setTimeout(() => {
+    document.addEventListener('click', function closeMenu() {
+      const m = document.querySelector('.status-menu');
+      if (m) m.remove();
+      document.removeEventListener('click', closeMenu);
+    }, { once: true });
+  }, 10);
+}
+
+function changeStatus(submissionId, newStatus) {
+  const subs = JSON.parse(localStorage.getItem('uj_submissions') || '[]');
+  const idx = subs.findIndex(x => x.submission_id === submissionId);
+  if (idx === -1) return;
+  const old = subs[idx].status;
+  subs[idx].status = newStatus;
+  subs[idx].status_updated = new Date().toISOString();
+  localStorage.setItem('uj_submissions', JSON.stringify(subs));
+  renderAdmin();
+  // Also re-render submission detail if visible
+  const detailPage = document.getElementById('page-submission');
+  if (detailPage && detailPage.classList.contains('active')) {
+    renderSubmission(submissionId);
+  }
+}
+
+function simulateNotify(submissionId) {
+  const subs = mockSubmissions.all();
+  const s = subs.find(x => x.submission_id === submissionId);
+  if (!s) return;
+  // Create a toast notification element
+  const toast = document.createElement('div');
+  toast.style.cssText = 'position:fixed;top:80px;right:24px;background:#fafaf8;border:1px solid var(--gold);padding:16px 24px;z-index:999;font-size:0.8rem;color:var(--text-primary);box-shadow:0 2px 12px rgba(0,0,0,0.08);max-width:360px;';
+  toast.innerHTML = '<strong>模拟通知已发送</strong><br><span style="font-size:0.7rem;color:var(--text-muted)">收件人：' + (s.email || s.author) + ' | 编号：' + submissionId + '</span><br><span style="font-size:0.68rem;color:var(--text-muted)">当前为前端原型，邮件通知将在接入真实后端后生效。</span>';
+  document.body.appendChild(toast);
+  setTimeout(() => { toast.remove(); }, 4000);
+}
+
+/* ===== My Submissions Page ===== */
+function searchMySubmissions() {
+  const email = document.getElementById('my-submissions-email').value.trim().toLowerCase();
+  const id = document.getElementById('my-submissions-id').value.trim().toUpperCase();
+  const resultsEl = document.getElementById('mySubmissionsResults');
+  
+  if (!email && !id) {
+    resultsEl.innerHTML = '<div class="admin-empty"><p>请输入邮箱或 Submission ID 进行查询</p></div>';
+    return;
+  }
+  
+  const subs = mockSubmissions.all();
+  let filtered = subs;
+  
+  if (email) {
+    filtered = filtered.filter(s => s.email && s.email.toLowerCase().includes(email));
+  }
+  
+  if (id) {
+    filtered = filtered.filter(s => s.submission_id === id);
+  }
+  
+  if (filtered.length === 0) {
+    resultsEl.innerHTML = '<div class="admin-empty"><p>未找到匹配的投稿记录</p><p class="empty-hint">请确认邮箱和 Submission ID 是否正确，或检查浏览器 localStorage 中是否有数据。</p></div>';
+    return;
+  }
+  
+  const html = filtered.map(s => {
+    const date = s.created_at ? new Date(s.created_at).toLocaleDateString('zh-CN') : '-';
+    return '<div class="my-submission-card">' +
+      '<div class="card-id">' + (s.submission_id || '-') + '</div>' +
+      '<div class="card-title">' + (s.title || '（无标题）') + '</div>' +
+      '<div class="card-meta"><span class="card-date">' + date + '</span>' +
+      '<span class="card-badge ' + (statusCSS[s.status] || 'badge-received') + '">' + (statusNames[s.status] || s.status) + '</span></div>' +
+      '<div class="card-next">下一步：' + (s.next_step || 'Editorial Screening') + '</div>' +
+      '</div>';
+  }).join('');
+  
+  resultsEl.innerHTML = '<div class="my-submissions-list">' + html + '</div>';
+}
+
+/* ===== Browse Page ===== */
+function renderBrowse() {
+  const grid = document.getElementById('browseGrid');
+  const empty = document.getElementById('browseEmpty');
+  if (!grid || !empty) return;
+
+  const subs = mockSubmissions.all();
+  // Show submissions that are public or collaboration-visible
+  let visible = subs.filter(s => {
+    const v = s.visibility || '';
+    return v.includes('公开') || v.includes('协作邀请') || v.includes('招募');
+  }).reverse();
+
+  // Apply search/filter
+  const searchTerm = (document.getElementById('browseSearch')?.value || '').toLowerCase().trim();
+  const typeFilter = document.getElementById('browseTypeFilter')?.value || '';
+  if (searchTerm) {
+    visible = visible.filter(s => {
+      const title = (s.title || '').toLowerCase();
+      const author = (s.author || s.name || '').toLowerCase();
+      const abstract = (s.abstract || '').toLowerCase();
+      return title.includes(searchTerm) || author.includes(searchTerm) || abstract.includes(searchTerm);
+    });
+  }
+  if (typeFilter) {
+    visible = visible.filter(s => (s.type || 'other') === typeFilter);
+  }
+
+  if (visible.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+  grid.innerHTML = visible.map(s => {
+    const title = s.title || '（无标题）';
+    const author = s.name || s.author || '匿名';
+    const date = s.created_at ? new Date(s.created_at).toLocaleDateString('zh-CN') : '-';
+    return '<div class="browse-card" onclick="navigateTo(\'submission/' + s.submission_id + '\')">' +
+      '<div class="card-id">' + (s.submission_id || '-') + '</div>' +
+      '<div class="card-title">' + (title.length > 50 ? title.substring(0,50)+'…' : title) + '</div>' +
+      '<div class="card-author">' + author + '</div>' +
+      '<div class="card-meta"><span class="card-date">' + date + '</span>' +
+      '<span class="card-badge">' + (statusNames[s.status] || s.status) + '</span></div>' +
+      '</div>';
+  }).join('');
+}
+
+/* ===== Admin Submission Detail Page ===== */
+function renderAdminSubmission(submissionId) {
+  const container = document.getElementById('adminSubmissionContent');
+  if (!container) return;
+
+  const subs = mockSubmissions.all();
+  const s = subs.find(x => x.submission_id === submissionId);
+  if (!s) {
+    container.innerHTML = '<div class="submission-not-found"><h3>未找到该投稿</h3><p>投稿编号 ' + submissionId + ' 不存在或已被移除。</p><br><a href="#" class="back-link" onclick="navigateTo(\'admin\');return false;">← 返回管理后台</a></div>';
+    return;
+  }
+
+  const title = s.title || '（无标题）';
+  const author = s.author || s.name || '匿名';
+  const date = s.created_at ? new Date(s.created_at).toLocaleString('zh-CN', { hour12: false }) : '-';
+  const status = s.status || 'received';
+  const abstract = s.abstract || '（暂无摘要）';
+  const statusUpdated = s.status_updated ? new Date(s.status_updated).toLocaleString('zh-CN', { hour12: false }) : '-';
+
+  // Build status timeline
+  const timeline = [];
+  timeline.push({ label: '已接收', time: date, active: true });
+  if (status !== 'received') {
+    timeline.push({ label: statusNames[status] || status, time: statusUpdated, active: true });
+  }
+  const allStatuses = ['received', 'screening', 'accepted', 'collab', 'protected'];
+  allStatuses.forEach(st => {
+    if (st !== 'received' && st !== status && !timeline.find(t => t.label === (statusNames[st] || st))) {
+      timeline.push({ label: statusNames[st] || st, time: '-', active: false });
+    }
+  });
+
+  const timelineHTML = timeline.map((t, i) => 
+    '<div class="timeline-step ' + (t.active ? 'active' : '') + '">' +
+    '<div class="timeline-dot"></div>' +
+    '<div class="timeline-content"><span class="timeline-label">' + t.label + '</span><span class="timeline-time">' + t.time + '</span></div>' +
+    '</div>'
+  ).join('');
+
+  const nextStatuses = statusFlow[status] || [];
+
+  container.innerHTML =
+    '<a href="#" class="back-link" onclick="navigateTo(\'admin\');return false;">← 返回管理后台</a>' +
+    '<div class="admin-detail-header">' +
+      '<div class="submission-id-header">' + (s.submission_id || '-') + '</div>' +
+      '<h1 class="submission-title">' + title + '</h1>' +
+      '<div class="submission-status-line"><span class="badge ' + (statusCSS[status] || 'badge-received') + '">' + (statusNames[status] || status) + '</span></div>' +
+    '</div>' +
+    '<div class="admin-detail-grid">' +
+      '<div class="admin-detail-main">' +
+        '<div class="detail-section"><h3>基本信息</h3>' +
+          '<div class="detail-row"><span class="detail-label">作者</span><span>' + author + '</span></div>' +
+          '<div class="detail-row"><span class="detail-label">邮箱</span><span>' + (s.email || '-') + '</span></div>' +
+          '<div class="detail-row"><span class="detail-label">机构</span><span>' + (s.affiliation || '-') + '</span></div>' +
+          '<div class="detail-row"><span class="detail-label">投稿类型</span><span>' + (s.type || '-') + '</span></div>' +
+          '<div class="detail-row"><span class="detail-label">当前阶段</span><span>' + (s.stage || '-') + '</span></div>' +
+          '<div class="detail-row"><span class="detail-label">可见性</span><span>' + (s.visibility || '-') + '</span></div>' +
+          '<div class="detail-row"><span class="detail-label">需要协作者</span><span>' + (s.collab && s.collab !== '否' ? '是 — ' + s.collab : '否') + '</span></div>' +
+          '<div class="detail-row"><span class="detail-label">希望进入资助池</span><span>' + (s.funding && s.funding !== '无' ? '是 — ' + s.funding : '否') + '</span></div>' +
+        '</div>' +
+        '<div class="detail-section"><h3>摘要</h3><div class="abstract-text">' + abstract + '</div></div>' +
+        '<div class="detail-section"><h3>文件上传</h3><div class="file-upload-placeholder"><p>文件上传功能将在接入真实后端后启用。当前为原型阶段，不支持文件存储。</p></div></div>' +
+        '<div class="detail-section"><h3>编辑备注</h3>' +
+          '<textarea class="detail-notes" id="adminNotes-' + s.submission_id + '" placeholder="添加内部备注（仅本地存储）..." onchange="saveAdminNote(\'' + s.submission_id + '\')">' + (s.admin_notes || '') + '</textarea>' +
+        '</div>' +
+      '</div>' +
+      '<div class="admin-detail-sidebar">' +
+        '<div class="detail-section"><h3>状态时间线</h3><div class="status-timeline">' + timelineHTML + '</div></div>' +
+        '<div class="detail-section"><h3>操作</h3>' +
+          (nextStatuses.length > 0 ? '<div class="detail-actions">' + nextStatuses.map(ns => 
+            '<button class="btn btn-sm ' + (ns === 'rejected' ? 'btn-danger' : '') + '" onclick="changeStatus(\'' + s.submission_id + '\',\'' + ns + '\');renderAdminSubmission(\'' + s.submission_id + '\');">→ ' + (statusNames[ns] || ns) + '</button>'
+          ).join('') + '</div>' : '<p style="font-size:0.75rem;color:var(--text-muted)">当前状态无法变更</p>') +
+          '<button class="btn btn-sm btn-outline" style="margin-top:8px;width:100%" onclick="simulateNotify(\'' + s.submission_id + '\')">模拟通知作者</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+    '<p style="margin-top:48px;font-size:0.68rem;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:24px;">声明：当前为前端原型。该内容的时间戳记录不构成正式专利保护或链上确权。平台所述未来功能均处于概念探索阶段。</p>';
+}
+
+function saveAdminNote(submissionId) {
+  const notesEl = document.getElementById('adminNotes-' + submissionId);
+  if (!notesEl) return;
+  const subs = JSON.parse(localStorage.getItem('uj_submissions') || '[]');
+  const idx = subs.findIndex(x => x.submission_id === submissionId);
+  if (idx === -1) return;
+  subs[idx].admin_notes = notesEl.value;
+  localStorage.setItem('uj_submissions', JSON.stringify(subs));
+}
+
+/* ===== Submission Detail Page ===== */
+function renderSubmission(submissionId) {
+  const container = document.getElementById('submissionContent');
+  if (!container) return;
+
+  const subs = mockSubmissions.all();
+  const s = subs.find(x => x.submission_id === submissionId);
+  if (!s) {
+    container.innerHTML = '<div class="submission-not-found"><h3>未找到该投稿</h3><p>投稿编号 ' + submissionId + ' 不存在或已被移除。</p><br><a href="#" class="back-link" onclick="navigateTo(\'browse\');return false;">← 返回档案</a></div>';
+    return;
+  }
+
+  const title = s.title || '（无标题）';
+  const author = s.name || s.author || '匿名';
+  const date = s.created_at ? new Date(s.created_at).toLocaleString('zh-CN', { hour12: false }) : '-';
+  const status = s.status || 'received';
+  const abstract = s.abstract || '（暂无摘要）';
+  const isAdmin = authStore.isLoggedIn();
+
+  container.innerHTML =
+    '<a href="#" class="back-link" onclick="navigateTo(\'browse\');return false;">← 返回档案</a>' +
+    '<div class="submission-id-header">' + (s.submission_id || '-') + '</div>' +
+    '<h1 class="submission-title">' + title + '</h1>' +
+    '<div class="submission-status-line"><span class="badge ' + (statusCSS[status] || 'badge-received') + '">' + (statusNames[status] || status) + '</span></div>' +
+    '<div class="submission-meta-row">' +
+      '<div class="meta-item"><span class="meta-label">作者</span>' + author + '</div>' +
+      '<div class="meta-item"><span class="meta-label">机构</span>' + (s.affiliation || '-') + '</div>' +
+      '<div class="meta-item"><span class="meta-label">提交</span>' + date + '</div>' +
+      '<div class="meta-item"><span class="meta-label">类型</span>' + (s.type || '-') + '</div>' +
+      '<div class="meta-item"><span class="meta-label">阶段</span>' + (s.stage || '-') + '</div>' +
+      '<div class="meta-item"><span class="meta-label">可见性</span>' + (s.visibility || '-') + '</div>' +
+    '</div>' +
+    '<div class="submission-section"><h3>摘要</h3><div class="abstract-text">' + abstract + '</div></div>' +
+    (s.collab && s.collab !== '否' ? '<div class="submission-section"><h3>协作需求</h3><p>' + s.collab + '</p></div>' : '') +
+    (s.funding ? '<div class="submission-section"><h3>资助信息</h3><p>' + s.funding + '</p></div>' : '') +
+    (isAdmin ? '<div class="submission-actions">' +
+      '<button onclick="toggleStatusMenu(event,\'' + s.submission_id + '\');this.textContent=\'状态 ▾\';">状态 ▾</button>' +
+      '<button onclick="simulateNotify(\'' + s.submission_id + '\')">通知作者</button>' +
+      '</div>' : '') +
+    '<p style="margin-top:48px;font-size:0.68rem;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:24px;">声明：当前为前端原型。该内容的时间戳记录不构成正式专利保护或链上确权。平台所述未来功能均处于概念探索阶段。</p>';
+}
+
+/* ===== Seed Mock Data ===== */
+(function seedMockData() {
+  if (localStorage.getItem('uj_submissions_seeded')) return;
+  const seeds = [
+    { author:'林知远', email:'lin@ustc.edu.cn', affiliation:'中国科学技术大学', title:'基于非平衡态热力学的意识涌现假说：一项跨学科探索', type:'理论假说', stage:'早期构想', abstract:'本文提出一种将意识理解为远离热力学平衡态的自组织临界现象的假说框架，整合了统计物理、神经科学和信息论的视角。核心论点是：意识体验的丰富性对应于系统自由能景观的复杂度。', visibility:'公开可见', collab:'欢迎跨学科合作', funding:'国家自然科学基金（待申请）', status:'screening' },
+    { author:'Sarah Chen', email:'s.chen@mit.edu', affiliation:'MIT Media Lab', title:'Temporal Fragments: A Computational Framework for Modeling Incomplete Knowledge Graphs', type:'方法论', stage:'实验数据已有', abstract:'We present a novel approach to reasoning over temporally incomplete knowledge graphs using attention-based fragment completion. Our method achieves 23% improvement over baseline on the ICEWS dataset for predicting missing relations in sparse temporal windows.', visibility:'协作邀请', collab:'寻找NLP/知识图谱合作者', funding:'MIT-IBM Watson AI Lab', status:'collab' },
+    { author:'王思涵', email:'wang_sh@cuhk.edu.hk', affiliation:'香港中文大学', title:'废墟诗学：当代中国城市遗址中的集体记忆重构', type:'田野调查', stage:'数据收集完成', abstract:'基于对珠三角六个城市更新区域的两年田野调查，本文分析居民如何在拆迁与重建的缝隙中通过口述史、社交媒体和日常实践重构集体记忆。提出"记忆褶皱"概念作为理解城市创伤与韧性的分析工具。', visibility:'半公开（仅注册用户）', collab:'否', funding:'香港研究资助局 GRF', status:'protected' },
+    { author:'Alex Rivera', email:'arivera@stanford.edu', affiliation:'Stanford University', title:'Unfinished Proteins: The Functional Role of Intrinsically Disordered Regions in Cellular Stress Response', type:'综述/元分析', stage:'完成初稿', abstract:'A comprehensive meta-analysis of 847 studies examining the role of intrinsically disordered protein regions (IDRs) in stress granule formation and cellular adaptation. We identify 12 conserved sequence motifs and propose a classification system for functional IDRs.', visibility:'公开可见', collab:'否', funding:'NIH R01', status:'accepted' },
+    { author:'陈嘉禾', email:'jhchen@pku.edu.cn', affiliation:'北京大学', title:'论未完成性：从本雅明到德勒兹的哲学遗产', type:'理论假说', stage:'早期构想', abstract:'本文追溯"未完成"概念在20世纪欧陆哲学中的谱系——从本雅明的废墟美学、阿多诺的否定辩证法到德勒兹的块茎思维。核心命题：未完成性不是缺陷而是本体论条件，是一切创造性思维的先在结构。', visibility:'公开可见', collab:'欢迎哲学/艺术史讨论', funding:'无', status:'received' },
+  ];
+  seeds.forEach(s => mockSubmissions.add(s));
+  localStorage.setItem('uj_submissions_seeded', '1');
+})();
+
+// Initialize from hash on page load
+(function() {
+  updateAuthUI();
+  const hash = window.location.hash.replace('#', '') || '';
+  // Only switch page for actual standalone pages; homepage sections stay on home
+  const standalonePages = ['about','submit','submit-success','guidelines','success','404','privacy','terms','contact','admin','login','register','join','browse','my-submissions','admin-submission'];
+  if (standalonePages.includes(hash)) {
+    switchPage(hash);
+  } else if (hash.startsWith('submission/') || hash.startsWith('admin-submission/')) {
+    switchPage(hash);
+  } else {
+    // Home page — ensure it's active and scroll to anchor if needed
+    switchPage('home');
+    if (hash) {
+      const el = document.getElementById(hash);
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 100);
+    }
+  }
+})();
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').catch(() => {});
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+name: Autonomous Loop
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * *"
+
+jobs:
+  loop:
+    if: github.ref_name == 'loop/staging'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout loop/staging
+        uses: actions/checkout@v4
+        with:
+          ref: loop/staging
+
+      - name: Verify branch
+        run: |
+          current_branch="$(git branch --show-current)"
+          test "$current_branch" = "loop/staging"
+
+      - name: Install Codex CLI
+        run: npm install -g @openai/codex
+
+      - name: Run autonomous loop
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: bash scripts/loop-runner.sh
+
+      - name: Upload loop report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: loop-report
+          path: LOOP_REPORT.md

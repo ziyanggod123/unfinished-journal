@@ -1,0 +1,18 @@
+{
+  "name": "未竟 — Unfinished Journal",
+  "short_name": "未竟",
+  "description": "献给所有尚未完成，但不应被遗忘的思想。一个为未竟研究提供记录、保护、协作与延续的学术平台。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF8",
+  "theme_color": "#B8944B",
+  "icons": [
+    {
+      "src": "logo2.png",
+      "sizes": "400x171",
+      "type": "image/png"
+    }
+  ],
+  "lang": "zh-CN",
+  "orientation": "any"
+}

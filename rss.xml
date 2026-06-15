@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>未竟 — Unfinished Journal</title>
+    <link>https://unfinishedjournal.com</link>
+    <description>献给所有尚未完成，但不应被遗忘的思想。一个为未竟研究提供记录、保护、协作与延续的学术平台。</description>
+    <language>zh-CN</language>
+    <atom:link href="https://unfinishedjournal.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>基于卡尔曼滤波的多传感器融合定位方法</title>
+      <link>https://unfinishedjournal.com/#/article/1748310145123</link>
+      <description>提出一种结合视觉 IMU 与激光雷达的实时融合定位框架，通过在卡尔曼滤波器中引入自适应噪声协方差矩阵，提升城市峡谷场景下的定位鲁棒性。</description>
+      <author>张明远</author>
+      <category>计算机科学 / 机器人学</category>
+      <pubDate>Mon, 26 May 2026 00:00:00 +0800</pubDate>
+      <guid isPermaLink="false">1748310145123</guid>
+    </item>
+    <item>
+      <title>明代海禁政策与闽南走私网络的形成</title>
+      <link>https://unfinishedjournal.com/#/article/1748310145124</link>
+      <description>以月港兴衰为线索，考察1567年隆庆开海前后闽南民间贸易网络的演变，重新评估海禁在地方经济中的实际效力。</description>
+      <author>陈思齐</author>
+      <category>历史学</category>
+      <pubDate>Sat, 24 May 2026 00:00:00 +0800</pubDate>
+      <guid isPermaLink="false">1748310145124</guid>
+    </item>
+    <item>
+      <title>城市边缘社区的社会资本与空间生产</title>
+      <link>https://unfinishedjournal.com/#/article/1748310145125</link>
+      <description>基于北京昌平回龙观社区的田野调查，分析居民自组织如何通过日常实践重塑城市边缘空间的社会意义。</description>
+      <author>李知夏</author>
+      <category>社会学</category>
+      <pubDate>Thu, 22 May 2026 00:00:00 +0800</pubDate>
+      <guid isPermaLink="false">1748310145125</guid>
+    </item>
+    <item>
+      <title>新型Ti3C2Tx MXene复合材料的制备及其在超级电容器中的应用</title>
+      <link>https://unfinishedjournal.com/#/article/1748310145126</link>
+      <description>采用原位聚合方法制备MXene/聚苯胺复合材料，研究不同MXene层间距对电极比电容和循环稳定性的影响。</description>
+      <author>王皓然</author>
+      <category>材料科学</category>
+      <pubDate>Tue, 20 May 2026 00:00:00 +0800</pubDate>
+      <guid isPermaLink="false">1748310145126</guid>
+    </item>
+    <item>
+      <title>超弦理论中紧致化方案的宇宙学约束</title>
+      <link>https://unfinishedjournal.com/#/article/1748310145127</link>
+      <description>分析Calabi-Yau流形上不同紧致化方案对早期宇宙膨胀的预言，建立弦论参数空间与Planck卫星观测数据的对应关系。</description>
+      <author>赵思远</author>
+      <category>理论物理</category>
+      <pubDate>Sun, 18 May 2026 00:00:00 +0800</pubDate>
+      <guid isPermaLink="false">1748310145127</guid>
+    </item>
+  </channel>
+</rss>
