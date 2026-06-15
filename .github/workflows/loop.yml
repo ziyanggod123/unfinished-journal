@@ -24,9 +24,12 @@ jobs:
       - name: Install Codex CLI
         run: npm install -g @openai/codex
 
-      - name: Run autonomous loop
+      - name: Login Codex with API key
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: printenv OPENAI_API_KEY | codex login --with-api-key
+
+      - name: Run autonomous loop
         run: bash scripts/loop-runner.sh
 
       - name: Upload loop report
