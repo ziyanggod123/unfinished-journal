@@ -367,12 +367,23 @@ function byRecent(a, b) {
 
 function closeNav() {
   const navLinks = document.getElementById("navLinks");
+  const navToggle = document.getElementById("navToggle");
   if (navLinks) navLinks.classList.remove("open");
+  if (navToggle) {
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", "打开菜单");
+  }
 }
 
 function toggleNav() {
   const navLinks = document.getElementById("navLinks");
-  if (navLinks) navLinks.classList.toggle("open");
+  const navToggle = document.getElementById("navToggle");
+  if (!navLinks) return;
+  const isOpen = navLinks.classList.toggle("open");
+  if (navToggle) {
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.setAttribute("aria-label", isOpen ? "关闭菜单" : "打开菜单");
+  }
 }
 
 function openModal(title, html) {
@@ -433,6 +444,14 @@ function switchPage(page) {
 
   target.classList.add("active");
   window.scrollTo(0, 0);
+
+  const navPage = pageId === "milestone" ? "archive" : ["login", "admin"].includes(pageId) ? "admin" : pageId;
+  document.querySelectorAll("#navLinks [data-page]").forEach((link) => {
+    const isCurrent = link.dataset.page === navPage;
+    link.classList.toggle("is-current", isCurrent);
+    if (isCurrent) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
+  });
 
   if (pageId !== "star-road") stopStarRoadGraph();
 

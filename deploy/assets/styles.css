@@ -359,8 +359,24 @@ img {
 }
 
 .nav-links a {
+  position: relative;
   white-space: nowrap;
   transition: color 0.2s ease;
+}
+
+.nav-links a.is-current {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.nav-links a.is-current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 1px;
+  background: currentColor;
 }
 
 .nav-links a:hover,
@@ -939,6 +955,15 @@ img {
   max-width: 900px;
   padding: 104px 0 32px;
   border-top: 1px solid rgba(16, 17, 20, 0.08);
+}
+
+.page:not(#page-star-road) > .page-hero {
+  padding-top: 76px;
+  padding-bottom: 18px;
+}
+
+.page:not(#page-star-road) > .page-hero + .section {
+  padding-top: 48px;
 }
 
 .compact-hero {
@@ -2023,6 +2048,15 @@ img {
   background: rgba(255, 255, 255, 0.98);
   color: var(--text);
   outline: none;
+  box-shadow: none;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.field-input:hover {
+  border-color: rgba(16, 17, 20, 0.24);
 }
 
 .field-input:focus {
@@ -2465,6 +2499,15 @@ img {
     padding: 12px 10px;
   }
 
+  .nav-links a.is-current {
+    border-radius: 10px;
+    background: rgba(16, 17, 20, 0.05);
+  }
+
+  .nav-links a.is-current::after {
+    display: none;
+  }
+
   .split-section,
   .form-grid,
   .fit-grid,
@@ -2527,6 +2570,15 @@ img {
   .hero {
     min-height: auto;
     padding: 54px 0 40px;
+  }
+
+  .page:not(#page-star-road) > .page-hero {
+    padding-top: 48px;
+    padding-bottom: 10px;
+  }
+
+  .page:not(#page-star-road) > .page-hero + .section {
+    padding-top: 34px;
   }
 
   .hero::before {

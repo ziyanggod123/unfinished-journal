@@ -73,6 +73,8 @@
           id="navToggle"
           onclick="toggleNav()"
           aria-label="打开菜单"
+          aria-controls="navLinks"
+          aria-expanded="false"
         >
           <span></span><span></span><span></span>
         </button>
@@ -81,6 +83,7 @@
           <li>
             <a
               href="#"
+              data-page="home"
               onclick="
                 navigateTo('home');
                 return false;
@@ -91,6 +94,7 @@
           <li>
             <a
               href="#"
+              data-page="star-road"
               onclick="
                 navigateTo('star-road');
                 return false;
@@ -101,6 +105,7 @@
           <li>
             <a
               href="#"
+              data-page="archive"
               onclick="
                 navigateTo('archive');
                 return false;
@@ -111,6 +116,7 @@
           <li>
             <a
               href="#"
+              data-page="submit"
               onclick="
                 navigateTo('submit');
                 return false;
@@ -122,6 +128,7 @@
           <li>
             <a
               href="#"
+              data-page="about"
               onclick="
                 navigateTo('about');
                 return false;
@@ -132,11 +139,12 @@
           <li>
             <a
               href="#"
+              data-page="admin"
               onclick="
                 navigateTo('admin');
                 return false;
               "
-              >原型后台</a
+              >编辑部</a
             >
           </li>
         </ul>
@@ -156,7 +164,7 @@
             <div class="hero-content">
               <div class="hero-edition-line">
                 <span>THE UNFINISHED JOURNAL</span>
-                <span>V3.1 MVP / PREVIEW FREEZE</span>
+                <span>FOUNDING EDITION / 2026</span>
               </div>
               <div class="hero-title-row">
                 <h1 class="hero-title">未竟</h1>
@@ -212,7 +220,7 @@
             <aside class="hero-cover-card" aria-label="未竟期刊封面信息">
               <div class="cover-topline">
                 <span>UNFINISHED JOURNAL</span>
-                <span>ISSN · PROTOTYPE</span>
+                <span>FOUNDING EDITION</span>
               </div>
               <div class="cover-mark">
                 <span class="cover-mark-en">The Unfinished Journal</span>
@@ -226,7 +234,7 @@
               <div class="cover-stamp">Editorial Dossier</div>
               <div class="cover-title-block">
                 <span>Issue</span>
-                <strong>Preview<br />Freeze</strong>
+                <strong>Founding<br />Edition</strong>
               </div>
               <p>
                 A catalogue for unfinished explorations, failed evidence and
@@ -235,7 +243,7 @@
               <dl class="cover-meta">
                 <div>
                   <dt>Accession</dt>
-                  <dd>UJ / V3.1 / Local Archive</dd>
+                  <dd>UJ / 2026 / Open Archive</dd>
                 </div>
                 <div>
                   <dt>Primary records</dt>
@@ -467,6 +475,7 @@
               <select
                 class="field-input"
                 id="archiveStatusFilter"
+                aria-label="按状态筛选"
                 onchange="renderArchive()"
               >
                 <option value="">全部状态</option>
@@ -474,6 +483,7 @@
               <select
                 class="field-input"
                 id="archiveFieldFilter"
+                aria-label="按领域筛选"
                 onchange="renderArchive()"
               >
                 <option value="">全部领域</option>
@@ -713,7 +723,7 @@
           <p>
             《未竟》不是普通期刊网站，而是“未完成探索的数据资产与文明传承平台”。
           </p>
-          <p class="page-stage">《未竟 V3.1 MVP - Preview Freeze》</p>
+          <p class="page-stage">创刊筹备期 · Founding Edition</p>
         </section>
         <section class="section">
           <div class="about-grid">
@@ -1160,7 +1170,7 @@
             Editorial record for unfinished explorations, failed evidence and inheritable routes.
           </p>
           <p>失败不是终点。无人继承，才是。</p>
-          <p class="footer-freeze">《未竟 V3.1 MVP - Preview Freeze》</p>
+          <p class="footer-freeze">创刊筹备期 · Founding Edition</p>
         </div>
         <div>
           <span class="footer-column-label">Archive</span>
@@ -1247,4 +1257,3 @@
     <script src="scripts/app.js"></script>
   </body>
 </html>
-
