@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "unfinished-knowledge-graph/v0.1",
+  "exportedAt": "2026-07-17T00:00:00.000Z",
+  "nodes": [
+    {
+      "id": "project-ms-star-0001",
+      "type": "Project",
+      "sourceId": "MS-STAR-0001",
+      "title": "Symbiotic Routes for Intertidal Plastic Decomposition",
+      "summary": "An unfinished biology project with inheritable samples and failure evidence.",
+      "status": "等待传承",
+      "visibility": "AI 检索授权",
+      "startedAt": "2025-02",
+      "endedAt": "2025-11",
+      "tags": ["生命科学", "等待传承"]
+    },
+    {
+      "id": "person-lin-zhiyuan",
+      "type": "Person",
+      "sourceId": "lin-zhiyuan",
+      "name": "Lin Zhiyuan",
+      "role": "Pioneer"
+    },
+    {
+      "id": "failure-ms-star-0001",
+      "type": "Failure",
+      "sourceId": "MS-STAR-0001",
+      "title": "Metabolism collapse",
+      "summary": "The symbiotic strain failed under dual low-temperature and high-salt pressure.",
+      "severity": "medium"
+    },
+    {
+      "id": "reason-ms-star-0001-0-metabolism-collapse",
+      "type": "Reason",
+      "sourceId": "MS-STAR-0001-reason-1",
+      "category": "method",
+      "label": "Metabolism collapsed under environmental stress",
+      "summary": "Metabolism collapsed under environmental stress"
+    },
+    {
+      "id": "asset-ms-star-0001-0-sample-library",
+      "type": "Asset",
+      "sourceId": "MS-STAR-0001-asset-1",
+      "assetType": "dataset",
+      "title": "Sample library",
+      "summary": "Sample library",
+      "accessLevel": "AI 检索授权"
+    },
+    {
+      "id": "route-ms-star-0001-0-two-stage-incubation",
+      "type": "Route",
+      "sourceId": "MS-STAR-0001-route-1",
+      "title": "Try a two-stage incubation route",
+      "description": "Try a two-stage incubation route",
+      "feasibility": "medium"
+    }
+  ],
+  "edges": [
+    {
+      "id": "person-lin-zhiyuan::CREATED::project-ms-star-0001",
+      "from": "person-lin-zhiyuan",
+      "to": "project-ms-star-0001",
+      "type": "CREATED",
+      "weight": 1
+    },
+    {
+      "id": "project-ms-star-0001::ENDED_WITH::failure-ms-star-0001",
+      "from": "project-ms-star-0001",
+      "to": "failure-ms-star-0001",
+      "type": "ENDED_WITH",
+      "weight": 0.84
+    },
+    {
+      "id": "failure-ms-star-0001::CAUSED_BY::reason-ms-star-0001-0-metabolism-collapse",
+      "from": "failure-ms-star-0001",
+      "to": "reason-ms-star-0001-0-metabolism-collapse",
+      "type": "CAUSED_BY",
+      "weight": 0.84
+    },
+    {
+      "id": "project-ms-star-0001::PRODUCED::asset-ms-star-0001-0-sample-library",
+      "from": "project-ms-star-0001",
+      "to": "asset-ms-star-0001-0-sample-library",
+      "type": "PRODUCED",
+      "weight": 0.9
+    },
+    {
+      "id": "project-ms-star-0001::CAN_CONTINUE_AS::route-ms-star-0001-0-two-stage-incubation",
+      "from": "project-ms-star-0001",
+      "to": "route-ms-star-0001-0-two-stage-incubation",
+      "type": "CAN_CONTINUE_AS",
+      "weight": 0.82
+    },
+    {
+      "id": "asset-ms-star-0001-0-sample-library::SUPPORTS::route-ms-star-0001-0-two-stage-incubation",
+      "from": "asset-ms-star-0001-0-sample-library",
+      "to": "route-ms-star-0001-0-two-stage-incubation",
+      "type": "SUPPORTS",
+      "weight": 0.63
+    }
+  ],
+  "documents": [
+    {
+      "id": "document-ms-star-0001-journal",
+      "type": "journal_entry",
+      "title": "MS-STAR-0001 · Journal Entry",
+      "content": "Summary and review content live here.",
+      "sourceProjectId": "project-ms-star-0001"
+    }
+  ]
+}

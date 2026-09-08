@@ -1,0 +1,8 @@
+{
+  "targetBranch": "codex/first-pass-ux",
+  "taskFile": "AGENT_TASK.md",
+  "validationCommand": "node scripts/validate-site.mjs",
+  "autoCommitMessage": "auto-loop: local iteration",
+  "autoPushRemote": "origin",
+  "autoPushBranch": "codex/first-pass-ux"
+}
